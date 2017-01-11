@@ -1,0 +1,19 @@
+/*
+* Isa Leijdekkers
+* 10606467
+*
+*/
+
+/* position map */
+#container {
+    position:relative;
+    left: 250px;
+    top: 40px;
+}
+
+/* style title */
+h3 {
+  font-family: optima;
+  font-size: 20px;
+  text-indent: 500px;
+}
