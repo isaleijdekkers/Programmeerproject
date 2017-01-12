@@ -101,7 +101,7 @@ d3.csv("aantaltellingen.csv", function(error, data) {
                .attr("r", 8);
             // create tooltip
             div.html("Aantal tellingen: " + "<br/>" + d.tellingen)
-               .style("left", (d3.event.pageX + 20) + "px")
+               .style("left", (d3.event.pageX + 200) + "px")
                .style("top", (d3.event.pageY - 50) + "px");
            })
           // redo changes on mouseout

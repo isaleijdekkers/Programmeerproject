@@ -32,14 +32,14 @@ h3 {
 }
 
 
-.crop img {
-    width: 450px;
-    height: 250px;
-    left: 390px;
+.img {
+    left: 410px;
     position: relative;
+    margin: 0 auto;
 }
 
 svg {
     top: 400px;
     position: absolute;
+    margin: 0 auto;
 }
