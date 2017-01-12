@@ -8,24 +8,44 @@ Isa Leijdekkers
     <head>
       <!-- add title -->
       <!-- include other files -->
-      <h3>De Nationale Tuinvogeltelling (2005 - 2015)</h3>
       <link rel="stylesheet" type="text/css" href="project.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
       <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
       <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
       <script src="project.js"></script>
+      <title>De Nationale Tuinvogeltelling (2005 - 2015)</title>
       <!-- <script src="d3tip.js"></script> -->
 
       <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     </head>
     <body>
-      <p style="position: absolute; top: 390px; left: 238px;">Geen data</p>
-      <div class="img">
-          <img src="birds.jpg" alt="Birds" width="400" height="200">
-        <div class="desc">Birds</div>
+      <!-- <p style="position: absolute; top: 390px; left: 238px;">Geen data</p> -->
+      <div class = "page-header">
+        <h2>Nationale Vogeltelling
+          <small>(2005-2016)</small>
+        </h2>
       </div>
+      <div>
+        <img src="birds.jpg" alt="birds" class="img-responsive center-block" style="width:400px;" />
+      </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12" id="timeline"></div>
+          </div>
+        </div>
 
-      <!-- add name, source and instructions -->
-      <!-- <div id="container" style="position: relative; width: 700px; height: 300px;"></div> -->
+
+
     </body>
+    <div class="footer">
+  <div class="row">
+  <hr>
+    <div class="col-lg-12">
+      <div class="col-md-12">
+        <a href="https://www.tuinvogeltelling.nl/">De Nationale Tuinvogeltelling</a>
+        <p class="muted pull-right">© 2017 Isa Leijdekkers. All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

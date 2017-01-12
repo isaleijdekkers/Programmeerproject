@@ -11,7 +11,7 @@ var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis().scale(x)
     .orient("bottom").tickFormat(d3.format("d"));
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#timeline").append("svg")
                 .attr("class", "plot")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -26,22 +26,11 @@ var yAxis = d3.svg.axis()
               .scale(y)
               .orient("left");
 
-// add d3-tip
-var tip = d3.tip()
-            .attr("class", "d3-tip")
-            .offset([-10, 50])
-            .html(function(d) {
-            return "<span style='color:black'>" + d.tellingen + "</span>";
-            });
-
-// setup tip
-svg.call(tip);
-
 var focus = svg.append("g")
                .style("display", "none");
 
                // create tooltip
-               var div = d3.select("body").append("div")
+               var div = d3.select("#timeline").append("div")
                            .attr("class", "tooltip")
                            .style("opacity", 0);
 
@@ -100,9 +89,10 @@ d3.csv("aantaltellingen.csv", function(error, data) {
              d3.select(this)
                .attr("r", 8);
             // create tooltip
-            div.html("Aantal tellingen: " + "<br/>" + d.tellingen)
-               .style("left", (d3.event.pageX + 200) + "px")
-               .style("top", (d3.event.pageY - 50) + "px");
+            div.html("Aantal tellingen: " + "<br/>" + " " + d.tellingen)
+            .style("left", d3.select(this).attr("cx") + "px")
+            .style("top", d3.select(this).attr("cy") - 20 + "px");
+
            })
           // redo changes on mouseout
           .on("mouseout", function(d) {

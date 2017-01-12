@@ -21,3 +21,7 @@ De meer gedetailleerde schetsen die ik heb gemaakt voor de design opdracht:
 Vandaag alle data in een csv-bestand gezet. Dataverzameling is afgerond. Mijn plan op kleine punten aangepast naar aanleiding van de feedback van vanochtend. Ik heb een begin gemaakt met de het html, css en javascript bestand. Tot nu toe enkel de titel en een halfwerkende tijdlijn gecreëerd. Zie afbeelding.
 
 ![](doc/visualisatie1.png)
+
+# dag 4
+
+Op dag 4 heb ik me vooral verdiept in bootstrap om een mooie layout te kunnen maken voor mijn site. De elementen die ik gister klaas had, heb ik omgezet in bootstrap. Hiermee kan alleen meer een geheel worden en kan ik elementen eenvoudiger en mooier naast en onder elkaar plaatsen. Verder heb ik de tijdlijn afgemaakt, door de tellingen avn het betreffende jaar te tonen wanneer de gebruiker eroverheen gaat met de muis. Ook heb ik een nieuwe header toegevoegd en een footer.

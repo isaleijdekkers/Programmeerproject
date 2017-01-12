@@ -4,13 +4,6 @@
 *
 */
 
-/* style title */
-h3 {
-  font-family: optima;
-  font-size: 20px;
-  text-indent: 420px;
-}
-
 /* style text on axis */
 	.axis {
 	  font-family: optima;
@@ -25,21 +18,36 @@ h3 {
 	  shape-rendering: crispEdges;
 	}
 
-  body {
-    background-color: whitesmoke;
-    font-family: optima;
-    font-size: 12px;
+html,
+body {
+    background: whitesmoke !important;
 }
 
-
-.img {
-    left: 410px;
-    position: relative;
-    margin: 0 auto;
+.img-responsive {
+  margin: 0 auto;
 }
 
-svg {
-    top: 400px;
-    position: absolute;
-    margin: 0 auto;
+.page-header {
+  text-align: center;
+  font-family: optima;
+}
+
+.tooltip {
+  position:relative;
+  text-align: center;
+  left: 30px;
+}
+
+.footer {
+  position:relative;
+  margin-top:230px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:50px;
+}
+
+#timeline {
+  position:relative;
+  top: 71px !important;
+  left: -50px !important;
 }
