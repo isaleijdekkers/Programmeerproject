@@ -11,7 +11,7 @@ var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis().scale(x)
     .orient("bottom").tickFormat(d3.format("d"));
 
-    var svg = d3.select("#timeline").append("svg")
+    var timeline = d3.select("#timeline").append("svg")
                 .attr("class", "plot")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -103,6 +103,97 @@ d3.csv("aantaltellingen.csv", function(error, data) {
                  .attr("r", 5)
                  .style("fill", "#fc9272");
            });
+});
+
+// add div element
+d3.select("body")
+  .append("div")
+  .attr("class", "chart");
+
+  // set dimensions of canvas
+  var margin = {top: 20, right: 20, bottom: 120, left: 50},
+      width = 950 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+
+  // set ranges
+  var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear().range([height, 0]);
+
+  // add SVG element
+  var svg = d3.select("#barchart").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  // define axis
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .ticks(10);
+
+// add d3-tip
+  var tip = d3.tip()
+      .attr("class", "d3-tip")
+      .offset([-10, 50])
+      .html(function(d) {
+      return "<span style='color:black'>" + d.telling16 + "</span>";
+  });
+
+// setup tip
+svg.call(tip);
+
+// load data
+d3.csv("vogeltelling.csv", function(error, data) {
+  data.forEach(function(d) {
+    d.vogel = d.vogel;
+    d.telling16 = +d.telling16;
+  });
+
+  // scale range of data
+  x.domain(data.map(function(d) { return d.vogel; }));
+  y.domain([0, d3.max(data, function(d) { return d.telling16; })]);
+
+  // add x axis
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", "-.55em")
+      .attr("transform", "rotate(-90)" );
+
+// add y axis
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 5)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Telling");
+
+  // Add bar chart
+  svg.selectAll(".bar")
+      .data(data)
+      .enter()
+      .append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.vogel); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.telling16); })
+      .attr("height", function(d) { return height - y(d.telling16); })
+      // show tip when hovering over and hide tip when not
+      .on("mouseover", function(d) { tip.show(d, y(d.telling16)); })
+      .on("mouseout", tip.hide);
 });
 
 }

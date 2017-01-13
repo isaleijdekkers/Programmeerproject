@@ -25,3 +25,7 @@ Vandaag alle data in een csv-bestand gezet. Dataverzameling is afgerond. Mijn pl
 # dag 4
 
 Op dag 4 heb ik me vooral verdiept in bootstrap om een mooie layout te kunnen maken voor mijn site. De elementen die ik gister klaas had, heb ik omgezet in bootstrap. Hiermee kan alleen meer een geheel worden en kan ik elementen eenvoudiger en mooier naast en onder elkaar plaatsen. Verder heb ik de tijdlijn afgemaakt, door de tellingen avn het betreffende jaar te tonen wanneer de gebruiker eroverheen gaat met de muis. Ook heb ik een nieuwe header toegevoegd en een footer.
+
+# dag 5
+
+Feedback gekregen op mijn eindplan, maar mist nog 1 visualisatie. Of van de tijdlijn een visualisatie maken, of een extra visualisatie toevoegen met betrekking tot de data over tuinen. Geprobeerd om een tweede viualisatie in  beeld te brengen, maar is nog niet echt gelukt. Morgen ga ik hier mee verder.
