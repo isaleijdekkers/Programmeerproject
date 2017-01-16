@@ -10,17 +10,17 @@ De schetsen die ik vandaag gemaakt heb:
 Data opgevraagd en ontvangen van de vogelbescherming. Zij hebben mij geen data kunnen geven over provincies en plekken waar de tellingen gedaan zijn in verbang met pricacy. Hierdoor heb ik het plan van de kaart van Nederland moeten verwerpen en een nieuwe visualisatie moeten bedenken. Ik heb vandaag besloten om met enkel te richten op de tuinvogeltelling. Doordat ik data van de afgelopen 16 jaar heb ontvangen heb ik bedacht om in plaats van vanuit een kaart, vanuit een tijdlijn te werken. Ik heb nieuwe schetsen gemaakt, en een nieuw idee uitgedacht. Het onderwerp, vogelsoorten in Nederland, is onveranderd.
 
 Hiervoor heb ik een nieuwe eerste schets gemaakt:
-![](doc/schets3.png)
+![](/doc/schets3.png)
 
 De meer gedetailleerde schetsen die ik heb gemaakt voor de design opdracht:
-![](doc/schets4.png)
-![](doc/schets5.png)
+![](/doc/schets4.png)
+![](/doc/schets5.png)
 
 # dag 3
 
 Vandaag alle data in een csv-bestand gezet. Dataverzameling is afgerond. Mijn plan op kleine punten aangepast naar aanleiding van de feedback van vanochtend. Ik heb een begin gemaakt met de het html, css en javascript bestand. Tot nu toe enkel de titel en een halfwerkende tijdlijn gecreëerd. Zie afbeelding.
 
-![](doc/visualisatie1.png)
+![](/doc/visualisatie1.png)
 
 # dag 4
 
@@ -36,4 +36,4 @@ Vandaag heb ik de barchart met vogels gemaakt. Hierbij heb ik een extra feature 
 
 Mijn project ziet er op dit moment zo uit:
 
-![](doc/visualisatie2.png)
+![](/doc/visualisatie2.png)

@@ -19,7 +19,7 @@ De eerste drie genoemde elementen wil ik zeker laten zien, alleen is nog onduide
 
 # Schetsen
 
-![](doc/schets3.png)
+![](/doc/schets3.png)
 
 # Bronnen
 

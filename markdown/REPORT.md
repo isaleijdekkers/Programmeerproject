@@ -2,7 +2,7 @@
 
 ## Week 1 Dag 1 - woensdag 11 januari
 
-![Selfie dag 1](doc/selfie1.png)
+![Selfie dag 1](/doc/selfie1.png)
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse en Jan Maarten de Vries  
 
@@ -12,7 +12,7 @@ Vandaag hebben we onze eerste ideeën aan elkaar voorgelegd aan de hand van de g
 
 ## Week 1 Dag 2 - donderdag 12 januari
 
-![Selfie dag 2](doc/selfie2.png)
+![Selfie dag 2](/doc/selfie2.png)
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim en Eline Jacobse.
 **Afwezig:** Jan Maarten de Vries  

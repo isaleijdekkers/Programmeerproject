@@ -6,8 +6,8 @@ Isa Leijdekkers
 
 # Schetsen
 
-![](doc/schets4.png)
-![](doc/schets5.png)
+![](/doc/schets4.png)
+![](/doc/schets5.png)
 
 # Techniek
 
