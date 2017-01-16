@@ -23,7 +23,7 @@ Na elke update hebben we elkaar technische tips gegeven over verschillende onder
 
 ## Week 2 Dag 1 - maandag 16 januari
 
-![Selfie dag 2](doc/selfie3.png)
+![Selfie dag 2](/doc/selfie3.png)
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse en Jan Maarten de Vries
 
