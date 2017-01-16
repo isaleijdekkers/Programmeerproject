@@ -29,3 +29,11 @@ Op dag 4 heb ik me vooral verdiept in bootstrap om een mooie layout te kunnen ma
 # dag 5
 
 Feedback gekregen op mijn eindplan, maar mist nog 1 visualisatie. Of van de tijdlijn een visualisatie maken, of een extra visualisatie toevoegen met betrekking tot de data over tuinen. Geprobeerd om een tweede viualisatie in  beeld te brengen, maar is nog niet echt gelukt. Morgen ga ik hier mee verder.
+
+# dag 6
+
+Vandaag heb ik de barchart met vogels gemaakt. Hierbij heb ik een extra feature toegevoegd om te kunnen sorteren. Zo kan worden gezien wat de meest getelde vogels zijn en wat de minst getelde vogels zijn. Ook kunnen de vogels weer op alfabetische volgorde worden gezet, om beter een vogel op te kunnen zoeken. Het lukt me niet helemaal om de x-as juist te krijgen, dus dat is wat ik morgen ga oplossen. Morgen wil ik ook de lijngrafiek afhebben en zorgen dat de barchart kan switchen van data.
+
+Mijn project ziet er op dit moment zo uit:
+
+![](doc/visualisatie2.png)

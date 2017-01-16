@@ -32,12 +32,6 @@ body {
   font-family: optima;
 }
 
-.tooltip {
-  position:relative;
-  text-align: center;
-  left: 20px;
-}
-
 .footer {
   position:relative;
   margin-top:230px; /* negative value of footer height */
@@ -49,31 +43,31 @@ body {
 #timeline {
   position:relative;
   top: 71px !important;
-  left: -50px !important;
+  left: 50px !important;
 }
 
 #nodata {
   position:relative;
 	top: 10px !important;
-  left: 75px !important;
+  left: 172px !important;
 	font-family: optima;
 }
 
 #barchart {
   position:relative;
-	top: 30px !important;
+	top: 120px !important;
   left: 75px !important;
 	font-family: optima;
 }
 
 /* style bars */
   .bar {
-    fill: antiquewhite;
+    fill: darkgrey;
   }
 
 /* style bars when hovering */
   .bar:hover {
-    fill: coral;
+    fill: lightgrey;
   }
 
 /* style text on axis */
@@ -94,5 +88,20 @@ body {
 	  .d3-tip
 	  {
 	    font-family: optima;
-	    font-size: 15px;
+	    font-size: 13px;
 	  }
+
+		label {
+			height: 13px;
+			position: relative;
+			top: 460px;
+			left: 70px;
+			font-family: optima;
+	    font-size: 13px;
+
+		}
+		input {
+
+		  position: relative;
+
+		}

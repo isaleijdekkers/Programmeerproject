@@ -1,26 +1,22 @@
 window.onload = function() {
-
+(function() {
 var margin = {top: 30, right: 40, bottom: 30, left: 50},
-  width = 1230 - margin.left - margin.right,
+  width = 1200 - margin.left - margin.right,
   height = 50 - margin.top - margin.bottom;
 
 
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 
-var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").tickFormat(d3.format("d"));
-
-    var timeline = d3.select("#timeline").append("svg")
+    var svg = d3.select("#timeline").append("svg")
                 .attr("class", "plot")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var xAxis = d3.svg.axis()
-              .scale(x)
-              .orient("bottom").tickFormat(d3.format("d"));;
+                var xAxis = d3.svg.axis().scale(x)
+                    .orient("bottom").tickFormat(d3.format("d"));
 
 var yAxis = d3.svg.axis()
               .scale(y)
@@ -29,10 +25,16 @@ var yAxis = d3.svg.axis()
 var focus = svg.append("g")
                .style("display", "none");
 
-               // create tooltip
-               var div = d3.select("#timeline").append("div")
-                           .attr("class", "tooltip")
-                           .style("opacity", 0);
+// add d3-tip
+var tip = d3.tip()
+            .attr("class", "d3-tip")
+            .offset([-10, 0])
+            .html(function(d) {
+            return "<span style='color:black'>" + d.tellingen + "<br>" + "deelnemers" + "</span>";
+            });
+
+// setup tip
+svg.call(tip);
 
 // load file
 d3.csv("aantaltellingen.csv", function(error, data) {
@@ -41,9 +43,7 @@ d3.csv("aantaltellingen.csv", function(error, data) {
   data.forEach(function(d) {
       d.jaar = d.jaar
       d.tellingen = d.tellingen
-      console.log(d.tellingen);
   });
-
 
     x.domain([2005, 2016]);
 
@@ -58,17 +58,7 @@ d3.csv("aantaltellingen.csv", function(error, data) {
        .attr("dy", ".71em")
        .style("text-anchor", "end");
 
-  // create circles
-  focus.append("circle")
-       .attr("class", "y1")
-       .style("fill", "red")
-       .style("stroke", "black")
-       .attr("r", 4);
 
-       focus.append("text")
-            .attr("class", "y1")
-            .attr("dx", -10)
-            .attr("dy", -13);
 
        // add dots
        svg.selectAll(".dot")
@@ -80,39 +70,23 @@ d3.csv("aantaltellingen.csv", function(error, data) {
           .attr("cy", -10)
           .style("fill", "#fc9272")
           .style("stroke", "black")
-          // show tooltip on mousehover
+          // show tip when hovering over and hide tip when not
           .on("mouseover", function(d) {
-            div.transition()
-               .duration(100)
-               .style("opacity", .9);
-             // change color and size dot on mousehover
+            tip.show(d, y(d.telling16))
              d3.select(this)
-               .attr("r", 8);
-            // create tooltip
-            div.html("Aantal tellingen: " + "<br/>" + " " + d.tellingen)
-            .style("left", d3.select(this).attr("cx") + "px")
-            .style("top", d3.select(this).attr("cy") - 20 + "px");
-
-           })
-          // redo changes on mouseout
+               .attr("r", 8); })
           .on("mouseout", function(d) {
-              div.transition()
-                  .duration(200)
-                  .style("opacity", 0);
-               d3.select(this)
-                 .attr("r", 5)
-                 .style("fill", "#fc9272");
-           });
+            tip.hide(d, y(d.telling16))
+             d3.select(this)
+            .attr("r", 5); });
 });
+})();
 
-// add div element
-d3.select("body")
-  .append("div")
-  .attr("class", "chart");
+(function() {
 
   // set dimensions of canvas
   var margin = {top: 20, right: 20, bottom: 120, left: 50},
-      width = 950 - margin.left - margin.right,
+      width = 1200 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
   // set ranges
@@ -140,7 +114,7 @@ d3.select("body")
 // add d3-tip
   var tip = d3.tip()
       .attr("class", "d3-tip")
-      .offset([-10, 50])
+      .offset([-10, 0])
       .html(function(d) {
       return "<span style='color:black'>" + d.telling16 + "</span>";
   });
@@ -194,6 +168,39 @@ d3.csv("vogeltelling.csv", function(error, data) {
       // show tip when hovering over and hide tip when not
       .on("mouseover", function(d) { tip.show(d, y(d.telling16)); })
       .on("mouseout", tip.hide);
+
+      d3.select("input").on("change", change);
+
+
+
+  function change() {
+
+
+    // Copy-on-write since tweens are evaluated after a delay.
+    var x0 = x.domain(data.sort(this.checked
+        ? function(a, b) { return b.telling16 - a.telling16; }
+        : function(a, b) { return d3.ascending(a.vogel, b.vogel); })
+        .map(function(d) { return d.vogel; }))
+        .copy();
+        console.log(x0);
+
+    svg.selectAll(".bar")
+        .sort(function(a, b) { return x0(a.vogel) - x0(b.vogel); });
+
+    var transition = svg.transition().duration(750),
+        delay = function(d, i) { return i * 50; };
+
+    transition.selectAll(".bar")
+        .delay(delay)
+        .attr("x", function(d) { return x0(d.vogel); });
+
+    transition.select(".x.axis")
+        .call(xAxis)
+      .selectAll("g")
+        .delay(delay);
+  }
 });
 
+
+})();
 }
