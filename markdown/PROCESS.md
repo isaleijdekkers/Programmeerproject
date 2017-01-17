@@ -37,3 +37,7 @@ Vandaag heb ik de barchart met vogels gemaakt. Hierbij heb ik een extra feature 
 Mijn project ziet er op dit moment zo uit:
 
 ![](/doc/visualisatie2.png)
+
+# dag 7
+
+Vandaag heb ik de barchart afgemaakt. Ik ben begonnen met updaten van data wanneer op een jaar geklikt wordt in de tijdlijn. Dit is nog niet af en hoop ik morgen voor elkaar te krijgen. Linken heb ik nog maar 1 keer gedaan en vind ik nog een lastig onderdeel. Ten tweede heb ik vandaag een begin gemaakt met de lijngrafiek. Ik heb nog geen juiste manier gevonden om van de data een grafiek te maken op de manier waarop het nu is opgeslagen. Ik moet nog uitzoeken of het op deze manier kan, of dat ik de data op een andere manier moet formatten. Ook heb ik meer orde aangebracht in mijn mapjes.

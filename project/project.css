@@ -60,6 +60,15 @@ body {
 	font-family: optima;
 }
 
+#linegraph {
+  position:relative;
+	top: 120px !important;
+  left: 75px !important;
+	font-family: optima;
+}
+
+
+
 /* style bars */
   .bar {
     fill: darkgrey;
