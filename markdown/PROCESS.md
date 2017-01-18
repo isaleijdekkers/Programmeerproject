@@ -2,8 +2,8 @@
 
 Een eerste idee uitgedacht. Schetsen gemaakt, en een verhaal bedacht wat ik wil vertellen.
 De schetsen die ik vandaag gemaakt heb:
-![](doc/schets1.png)
-![](doc/schets2.png)
+![](/doc/schets1.png)
+![](/doc/schets2.png)
 
 # dag 2
 
@@ -48,6 +48,6 @@ Ik heb na veel moeite vandaag mijn lijngrafiek gemaakt. Hier moeten de waarden e
 
 Mijn project ziet er op dit moment zo uit:
 
-[](/doc/visualisatie3.png)
-[](/doc/visualisatie4.png)
-[](/doc/visualisatie5.png)
+![](/doc/visualisatie3.png)
+![](/doc/visualisatie4.png)
+![](/doc/visualisatie5.png)
