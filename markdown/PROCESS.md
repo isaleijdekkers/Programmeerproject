@@ -41,3 +41,13 @@ Mijn project ziet er op dit moment zo uit:
 # dag 7
 
 Vandaag heb ik de barchart afgemaakt. Ik ben begonnen met updaten van data wanneer op een jaar geklikt wordt in de tijdlijn. Dit is nog niet af en hoop ik morgen voor elkaar te krijgen. Linken heb ik nog maar 1 keer gedaan en vind ik nog een lastig onderdeel. Ten tweede heb ik vandaag een begin gemaakt met de lijngrafiek. Ik heb nog geen juiste manier gevonden om van de data een grafiek te maken op de manier waarop het nu is opgeslagen. Ik moet nog uitzoeken of het op deze manier kan, of dat ik de data op een andere manier moet formatten. Ook heb ik meer orde aangebracht in mijn mapjes.
+
+# dag 8
+
+Ik heb na veel moeite vandaag mijn lijngrafiek gemaakt. Hier moeten de waarden en de namen van de vogels nog aan toegevoegd worden. Om deze te kunnen maken heb ik het csv bestand moeten aanpassen en gesorteerd op jaar. Een volgende stap is dat ik de barchart aanpas aan deze dataset. Ook de schalen heb ik veranderd in logaritmische schalen omdat het verschil tussen verschillende tellingen erg groot is. Een derde visualisatie wordt de pie chart, deze wil ik naast de barchart plaatsen en met elkaar verbinden.
+
+Mijn project ziet er op dit moment zo uit:
+
+[](/doc/visualisatie3.png)
+[](/doc/visualisatie4.png)
+[](/doc/visualisatie5.png)

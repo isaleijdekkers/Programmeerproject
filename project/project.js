@@ -94,7 +94,9 @@ function drawBarchart(jaar) {
   // set ranges
   var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
 
-  var y = d3.scale.linear().range([height, 0]);
+  // var y = d3.scale.linear().range([height, 0]);
+  var y = d3.scale.log()
+      .rangeRound([height, 0]);
 
   // add SVG element
   var svg = d3.select("#barchart").append("svg")
@@ -130,11 +132,10 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
     d.vogel = d.vogel;
     d.telling16 = +d.telling16;
   });
-  console.log(data)
-
   // scale range of data
   x.domain(data.map(function(d) { return d.vogel; }));
-  y.domain([0, d3.max(data, function(d) { return d.telling16; })]);
+  // y.domain([0, d3.max(data, function(d) { return d.telling16; })]);
+  y.domain([.3, 300000]);
 
   // add x axis
   svg.append("g")
@@ -211,79 +212,87 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
 }
 
 (function() {
-  // set dimensions of canvas
-  var margin = {top: 20, right: 20, bottom: 120, left: 50},
-       width = 950 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
+  var margin = {top: 20, right: 55, bottom: 30, left: 40},
+      width  = 1000 - margin.left - margin.right,
+      height = 500  - margin.top  - margin.bottom;
 
-  // set ranges
-  var x = d3.time.scale().range([0, width]);
-  var y = d3.scale.linear().range([height, 0]);
+  var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], -.9);
 
-  // parse the date
-  var parseDate = d3.time.format("%Y%m").parse;
-  bisectDate = d3.bisector(function(d) { return d.date; }).left;
+      var y = d3.scale.log()
+          .rangeRound([height, 0]);
 
-  // add SVG element
-  var svg = d3.select("#linegraph").append("svg")
-              .attr("width", width + margin.left + margin.right)
-              .attr("height", height + margin.top + margin.bottom)
-              .append("g")
-              .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  // define axis
   var xAxis = d3.svg.axis()
-                .scale(x)
-                .orient("bottom");
+      .scale(x)
+      .orient("bottom");
 
   var yAxis = d3.svg.axis()
-                .scale(y)
-                .orient("left")
-                .ticks(10);
+      .scale(y)
+      .orient("left");
 
-// Define the line
-var priceline = d3.svg.line()
-    .x(function(d) { return x(d.values); })
-    .y(function(d) { return y(d.vogel); });
+  var line = d3.svg.line()
+      .x(function (d) { return x(d.label) + x.rangeBand() / 2; })
+      .y(function (d) { return y(d.value); });
 
-    // load data
-    d3.csv("/data/vogeltelling.csv", function(error, data) {
-      data.forEach(function(d) {
-        d.vogel = d.vogel;
-        d.telling16 = +d.telling16;
+
+  var svg = d3.select("#linegraph").append("svg")
+      .attr("width",  width  + margin.left + margin.right)
+      .attr("height", height + margin.top  + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  d3.csv("/data/testvogels.csv", function (error, data) {
+    var labelVar = 'jaar';
+    var varNames = d3.keys(data[0]).filter(function (key) { return key !== labelVar;});
+
+    var seriesData = varNames.map(function (name) {
+      return {
+        name: name,
+        values: data.map(function (d) {
+          return {name: name, label: d[labelVar], value: +d[name]};
+        })
+      };
+    });
+    x.domain(data.map(function (d) { return d.jaar; }));
+    y.domain([.3, 300000]);
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Aantal keer geteld");
+
+    svg.selectAll(".series")
+        .data(seriesData)
+      .enter().append("g")
+        .attr("class", "series")
+        .append("path")
+      .attr("class", "line")
+      .attr("d", function (d) { return line(d.values); })
+      .style("stroke", "lightgrey")
+      .style("stroke-width", "2px")
+      .style("fill", "none")
+      .on("mouseover", function(d) {
+         d3.select(this)
+           .style("stroke", "forestgreen")
+           .style("stroke-width", "3px"); })
+           .on("mouseout", function(d) {
+              d3.select(this)
+                .style("stroke", "lightgrey")
+                .style("stroke-width", "2px"); });
+
       });
 
-      // Scale the range of the data
-    x.domain([2005, 2016]);
-    y.domain([0, d3.max(data, function(d) { return d.telling13; })]);
-
-    // Nest the entries by symbol
-    var dataNest = d3.nest()
-        .key(function(d) {return d.values;})
-        .entries(data);
-
-    // Loop through each symbol / key
-    dataNest.forEach(function(d) {
-
-        svg.append("path")
-            .attr("class", "line")
-            .attr("d", priceline(d.values));
-            console.log(d.values)
-
-            // Add the X Axis
-   svg.append("g")
-       .attr("class", "x axis")
-       .attr("transform", "translate(0," + height + ")")
-       .call(xAxis);
-
-   // Add the Y Axis
-   svg.append("g")
-       .attr("class", "y axis")
-       .call(yAxis);
-
-    });
-
-  });
 
 
 })();
