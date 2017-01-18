@@ -78,11 +78,11 @@ d3.csv("/data/aantaltellingen.csv", function(error, data) {
              d3.select(this)
             .attr("r", 5); })
           .on("click", function(d) {
-          draw_barchart(d.jaar) });;
+          drawBarchart(d.jaar) });;
 });
 })();
 
-function draw_barchart(jaar) {
+function drawBarchart(jaar) {
   console.log("telling" + jaar.slice(-2))
 
 
