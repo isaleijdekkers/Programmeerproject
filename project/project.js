@@ -78,12 +78,14 @@ d3.csv("/data/aantaltellingen.csv", function(error, data) {
              d3.select(this)
             .attr("r", 5); })
           .on("click", function(d) {
-          drawBarchart(d.jaar) });;
-});
+          drawBarchart(d.jaar)
+
+        });
+      });
 })();
 
 function drawBarchart(jaar) {
-  console.log("telling" + jaar.slice(-2))
+var jaar = "telling" + jaar.slice(-2);
 
 
   // set dimensions of canvas
@@ -120,7 +122,7 @@ function drawBarchart(jaar) {
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
-        return "<span style='color:black'>" + d.telling16 + "</span>";
+        return "<span style='color:black'>" + d[jaar] + "</span>";
       // return "<span style='color:black'>" + d[jaar] + "</span>";
   });
 
@@ -129,10 +131,6 @@ svg.call(tip);
 
 // load data
 d3.csv("/data/vogeltelling.csv", function(error, data) {
-  data.forEach(function(d) {
-    d.vogel = d.vogel;
-    d.telling16 = +d.telling16;
-  });
   // scale range of data
   x.domain(data.map(function(d) { return d.vogel; }));
   // y.domain([0, d3.max(data, function(d) { return d.telling16; })]);
@@ -168,19 +166,19 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.vogel); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.telling16); })
-      .attr("height", function(d) { return height - y(d.telling16); })
+      .attr("y", function(d) { return y(d[jaar]); })
+      .attr("height", function(d) { return height - y(d[jaar]); })
       // show tip when hovering over and hide tip when not
-      .on("mouseover", function(d) { tip.show(d, y(d.telling16)); })
+      .on("mouseover", function(d) { tip.show(d, y(d[jaar])); })
       .on("mouseout", tip.hide);
 
       d3.select("input").on("change", change);
 
-  function change() {
+  function change(d) {
 
     // Copy-on-write since tweens are evaluated after a delay.
     var x0 = x.domain(data.sort(this.checked
-        ? function(a, b) { return b.telling16 - a.telling16; }
+        ? function(a, b) { return b[jaar] - a[jaar]; }
         : function(a, b) { return d3.ascending(a.vogel, b.vogel); })
         .map(function(d) { return d.vogel; }))
         .copy();
@@ -293,6 +291,7 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
         .attr("class", "series")
         .append("path")
       .attr("class", "line")
+      .attr("id", "line")
       .attr("d", function (d) { return line(d.values); })
       .style("stroke", "lightgrey")
       .style("stroke-width", "1.5px")
@@ -307,9 +306,8 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
 
       d3.select(this)
         .style("stroke", "forestgreen")
-        .style("stroke-width", "3px");
-        console.log(this)})
-
+        .style("stroke-width", "3px")
+})
       .on("mouseout", function(d) {
         tip.hide(d, y(d.name))
 
@@ -328,13 +326,33 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
           .attr("r", 0)
           .attr("class", "punt")
           .attr("cx", function(d) { return x(d.jaar) + x.rangeBand() / 2;; })
-          .attr("cy", function(d) { console.log(d); return y(d["Huismus"]); });
+          .attr("cy", function(d) { return y(d["Huismus"]); });
 
 
     });
 
 
 
+  function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
 })();
+
 
 }
