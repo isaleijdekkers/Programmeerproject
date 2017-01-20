@@ -51,3 +51,11 @@ Mijn project ziet er op dit moment zo uit:
 ![](/doc/visualisatie3.png)
 ![](/doc/visualisatie4.png)
 ![](/doc/visualisatie5.png)
+
+# dag 9
+
+Vandaag ben ik verder gegaan met de lijngrafiek. Nu is het mogelijk om over de lijnen in de grafiek te hoveren en licht deze op. Ook is nu de vogel te zijn waar de lijn bijhoort. Een ander onderdeel dat ik heb toegevoegd aan de lijngrafiek zijn de cirkeltjes die bij het juiste jaar en op de juiste lijn te zien zijn wanneer je eroverheen gaat. Het enige dat nog mist in deze visualisatie is een tooltip bij de cirkeltjes met aantal tellingen en juiste waarden op de y-as en ook een zoekbalk. Een derde visualisatie wordt de volgende stap. Hiervoor wil ik een tabel laten zien met de vogels die het percentage tuinen waarin de vogel voorkomt en de groepsgrootte.
+
+De lijnrafiek ziet er op dit moment zo uit:
+
+![](/doc/visualisatie6.png)

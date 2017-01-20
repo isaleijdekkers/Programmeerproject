@@ -120,7 +120,8 @@ function drawBarchart(jaar) {
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
-      return "<span style='color:black'>" + d[jaar] + "</span>";
+        return "<span style='color:black'>" + d.telling16 + "</span>";
+      // return "<span style='color:black'>" + d[jaar] + "</span>";
   });
 
 // setup tip
@@ -242,6 +243,17 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+      // add d3-tip
+        var tip = d3.tip()
+            .attr("class", "d3-tip")
+            .offset([15,490])
+            .html(function(data) {
+            return "<span style='color:black'>" + data.name + "</span>"
+            });
+
+      // setup tip
+      svg.call(tip);
+
   d3.csv("/data/testvogels.csv", function (error, data) {
     var labelVar = 'jaar';
     var varNames = d3.keys(data[0]).filter(function (key) { return key !== labelVar;});
@@ -254,8 +266,9 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
         })
       };
     });
+
     x.domain(data.map(function (d) { return d.jaar; }));
-    y.domain([.3, 300000]);
+    y.domain([.25, 250000]);
 
     svg.append("g")
         .attr("class", "x axis")
@@ -272,6 +285,8 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
         .style("text-anchor", "end")
         .text("Aantal keer geteld");
 
+
+
     svg.selectAll(".series")
         .data(seriesData)
       .enter().append("g")
@@ -280,18 +295,43 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
       .attr("class", "line")
       .attr("d", function (d) { return line(d.values); })
       .style("stroke", "lightgrey")
-      .style("stroke-width", "2px")
+      .style("stroke-width", "1.5px")
       .style("fill", "none")
       .on("mouseover", function(d) {
-         d3.select(this)
-           .style("stroke", "forestgreen")
-           .style("stroke-width", "3px"); })
-           .on("mouseout", function(d) {
-              d3.select(this)
-                .style("stroke", "lightgrey")
-                .style("stroke-width", "2px"); });
+        tip.show(d, y(d.name))
+        currentName = d.name;
+        d3.selectAll(".punt")
+        .data(data)
+        .attr("r", 3)
+        .attr("cy", function(d, i) {return y(data[i][currentName]); })
 
+      d3.select(this)
+        .style("stroke", "forestgreen")
+        .style("stroke-width", "3px");
+        console.log(this)})
+
+      .on("mouseout", function(d) {
+        tip.hide(d, y(d.name))
+
+        d3.selectAll(".punt")
+        .attr("r", 0)
+
+      d3.select(this)
+        .style("stroke", "lightgrey")
+        .style("stroke-width", "1.5px")
       });
+
+      // Add the scatterplot
+      svg.selectAll(".dot")
+          .data(data)
+        .enter().append("circle")
+          .attr("r", 0)
+          .attr("class", "punt")
+          .attr("cx", function(d) { return x(d.jaar) + x.rangeBand() / 2;; })
+          .attr("cy", function(d) { console.log(d); return y(d["Huismus"]); });
+
+
+    });
 
 
 

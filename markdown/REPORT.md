@@ -41,9 +41,17 @@ Isa heeft een bar chart gemaakt, alleen de tekst wordt nog niet helemaal mooi we
 
 ## Week 2 Dag 3 - woensdag 18 januari
 
-![Selfie dag 5](/doc/selfie4.png)
+![Selfie dag 5](/doc/selfie5.png)
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse
 **Afwezig** Jan Maarten de Vries
+
+Vandaag hebben we de styleguide gemaakt.
+
+## Week 2 Dag 4 - woensdag 18 januari
+
+![Selfie dag 6](/doc/selfie6.png)
+
+**Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse en Jan Maarten de Vries
 
 Vandaag hebben we de styleguide gemaakt.
