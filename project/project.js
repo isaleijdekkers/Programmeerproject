@@ -66,7 +66,7 @@ d3.csv("/data/aantaltellingen.csv", function(error, data) {
           .attr("r", 5)
           .attr("cx", function(d) { return x(d.jaar); })
           .attr("cy", -10)
-          .style("fill", "#fc9272")
+          .style("fill", "darkgrey")
           .style("stroke", "black")
           // show tip when hovering over and hide tip when not
           .on("mouseover", function(d) {
@@ -89,7 +89,7 @@ var jaar = "telling" + jaar.slice(-2);
 
 
   // set dimensions of canvas
-  var margin = {top: 20, right: 20, bottom: 120, left: 50},
+  var margin = {top: 20, right: 20, bottom: 120, left: 55},
       width = 1200 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
@@ -115,7 +115,10 @@ var jaar = "telling" + jaar.slice(-2);
   var yAxis = d3.svg.axis()
       .scale(y)
       .orient("left")
-      .ticks(10);
+      .ticks(10)
+      .tickFormat(function (d) {
+        return y.tickFormat(4,d3.format(",d"))(d);
+        });;
 
 // add d3-tip
   var tip = d3.tip()
@@ -130,7 +133,7 @@ var jaar = "telling" + jaar.slice(-2);
 svg.call(tip);
 
 // load data
-d3.csv("/data/vogeltelling.csv", function(error, data) {
+d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
   // scale range of data
   x.domain(data.map(function(d) { return d.vogel; }));
   // y.domain([0, d3.max(data, function(d) { return d.telling16; })]);
@@ -211,7 +214,7 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
 }
 
 (function() {
-  var margin = {top: 20, right: 55, bottom: 30, left: 40},
+  var margin = {top: 20, right: 55, bottom: 30, left: 55},
       width  = 1000 - margin.left - margin.right,
       height = 500  - margin.top  - margin.bottom;
 
@@ -228,7 +231,10 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
 
   var yAxis = d3.svg.axis()
       .scale(y)
-      .orient("left");
+      .orient("left")
+      .tickFormat(function (d) {
+        return y.tickFormat(4,d3.format(",d"))(d);
+        });
 
   var line = d3.svg.line()
       .x(function (d) { return x(d.label) + x.rangeBand() / 2; })
@@ -264,6 +270,7 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
         })
       };
     });
+
 
     x.domain(data.map(function (d) { return d.jaar; }));
     y.domain([.25, 250000]);
@@ -319,7 +326,7 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
         .style("stroke-width", "1.5px")
       });
 
-      // Add the scatterplot
+      // Add the circles
       svg.selectAll(".dot")
           .data(data)
         .enter().append("circle")
@@ -354,5 +361,78 @@ d3.csv("/data/vogeltelling.csv", function(error, data) {
 
 })();
 
+(function() {
+
+var diameter = 500;
+var color    = d3.scale.category20c();
+ //color category
+
+    // // create arrays with values and colors
+    // values = [2, 3, 4, 5, 6, 7, 8]
+    // colors = ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a","#de2d26", "#a50f15"]
+    //
+    // // create color palette function
+    // var paletteScale = d3.scale.quantize()
+    //                   .domain(values)
+    //                   .range(colors);
+
+var bubble = d3.layout.pack()
+    // .sort(function(a, b) {
+    //     return -(a.value - b.value);
+    // })
+    .sort(null)
+    .size([diameter, diameter])
+    .padding(1.5);
+
+    // var pack = d3.layout.pack()
+    // .size([diameter - 4, diameter - 4])
+    // .sort( function(a, b) {
+    //     return -(a.value - b.value);
+    // })
+    // .value(function(d) { return d.size; });
+
+var svg = d3.select("#bubblechart")
+    .append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter)
+    .attr("class", "bubble");
+
+d3.csv("/data/groepsgrootte.csv", function(error, data){
+
+    //convert numerical values from strings to numbers
+    data = data.map(function(d){ d.value = +d["2012"]; return d; });
+    console.log(data);
+
+    //bubbles needs very specific format, convert data to this.
+    var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
+
+    //setup the chart
+    var bubbles = svg.append("g")
+        .attr("transform", "translate(0,0)")
+        .selectAll(".bubble")
+        .data(nodes)
+        .enter();
+
+    //create the bubbles
+    bubbles.append("circle")
+        .attr("r", function(d){ return d.r; })
+        .attr("cx", function(d){ return d.x; })
+        .attr("cy", function(d){ return d.y; })
+        .style("fill", function(d) { return color(d["2012"]); });
+
+    //format the text for each bubble
+    bubbles.append("text")
+        .attr("x", function(d){ return d.x; })
+        .attr("y", function(d){ return d.y + 5; })
+        .attr("text-anchor", "middle")
+        .text(function(d){ return d.vogel; })
+        .style({
+            "fill":"white",
+            "font-family":"Helvetica Neue, Helvetica, Arial, san-serif",
+            "font-size": "12px"
+        });
+})
+
+})();
 
 }
