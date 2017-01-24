@@ -4,6 +4,8 @@ var margin = {top: 30, right: 40, bottom: 30, left: 50},
   width = 1200 - margin.left - margin.right,
   height = 50 - margin.top - margin.bottom;
 
+  drawBarchart("2016");
+
 
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
@@ -78,7 +80,22 @@ d3.csv("/data/aantaltellingen.csv", function(error, data) {
              d3.select(this)
             .attr("r", 5); })
           .on("click", function(d) {
+            document.getElementById("barchart")
+            .innerHTML = " ";
+
+            document.getElementById("checkbox").checked = false;
+
+
+
+            // d3.select("#barchart")
+            // .remove()
+
           drawBarchart(d.jaar)
+
+          d3.selectAll(".dot")
+          .style("fill", "darkgrey");
+          d3.select(this)
+         .style("fill", "red")
 
         });
       });
@@ -336,75 +353,107 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
           .attr("cy", function(d) { return y(d["Huismus"]); });
 
 
-    });
+
 
 
 
   function myFunction() {
   // Declare variables
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  tr = table.getElementsByTagName("tr");
+  var input = document.getElementById("myInput").value;
+  document.getElementById("line").innerHTML = input;
+  console.log(input)
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
+
+  // // Loop through all table rows, and hide those who don't match the search query
+  // for (i = 0; i < tr.length; i++) {
+  //   td = tr[i].getElementsByTagName("td")[0];
+  //   if (td) {
+  //     if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+  //       tr[i].style.display = "";
+  //     } else {
+  //       tr[i].style.display = "none";
+  //     }
+  //   }
+  // }
+ }
+
+});
 
 })();
 
 (function() {
 
-var diameter = 500;
-var color    = d3.scale.category20c();
- //color category
+  var diameter = 500;
+  var color  = d3.scale.category20c();
 
-    // // create arrays with values and colors
-    // values = [2, 3, 4, 5, 6, 7, 8]
-    // colors = ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a","#de2d26", "#a50f15"]
-    //
-    // // create color palette function
-    // var paletteScale = d3.scale.quantize()
-    //                   .domain(values)
-    //                   .range(colors);
+  var bubble = d3.layout.pack()
+      .sort(function(a, b) {
+          return -(a.value - b.value);
+      })
+      .size([diameter, diameter])
+      .padding(1.5);
 
-var bubble = d3.layout.pack()
-    // .sort(function(a, b) {
-    //     return -(a.value - b.value);
-    // })
-    .sort(null)
-    .size([diameter, diameter])
-    .padding(1.5);
+  var svg = d3.select("#bubblechart")
+      .append("svg")
+      .attr("width", diameter + 200)
+      .attr("height", diameter + 200)
+      .attr("class", "bubble");
 
-    // var pack = d3.layout.pack()
-    // .size([diameter - 4, diameter - 4])
-    // .sort( function(a, b) {
-    //     return -(a.value - b.value);
-    // })
-    // .value(function(d) { return d.size; });
+      var tooltip = d3.select("body").append("div")
+          .attr("class", "tooltip")
+          .style("opacity", 0);
 
-var svg = d3.select("#bubblechart")
-    .append("svg")
-    .attr("width", diameter)
-    .attr("height", diameter)
-    .attr("class", "bubble");
+  d3.csv("/data/groepsgrootte.csv", function(error, data){
 
-d3.csv("/data/groepsgrootte.csv", function(error, data){
-
-    //convert numerical values from strings to numbers
     data = data.map(function(d){ d.value = +d["2012"]; return d; });
-    console.log(data);
+
 
     //bubbles needs very specific format, convert data to this.
     var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
+
+
+
+  function dblclick(d) {
+    d3.select(this).classed("fixed", d.fixed = false);
+  }
+
+  function dragstart(d) {
+    d3.select(this).classed("fixed", d.fixed = true);
+  }
+
+  function collide(node) {
+    var r = node.r + 16;
+    var nx1 = node.x - r;
+    var nx2 = node.x + r;
+    var ny1 = node.y - r;
+    var ny2 = node.y + r;
+    return function (quad, x1, y1, x2, y2) {
+      if (quad.point && (quad.point !== node)) {
+        var x = node.x - quad.point.x;
+        var y = node.y - quad.point.y;
+        var l = Math.sqrt(x * x + y * y);
+        var npr = node.r + quad.point.r;
+        if (l < npr) {
+          l = (l - npr) / l * 0.5;
+          x *= l;
+          node.x -= x;
+          y *= l;
+          node.y -= y;
+          quad.point.x += x;
+          quad.point.y += y;
+        }
+      }
+      return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+    };
+  }
+
+  function packup() {
+    var pack = d3.layout.pack()
+    .size([diameter - 4, diameter - 4])
+    .sort( function(a, b) {
+        return -(a.value - b.value);
+    })
+    .value(function(d) { return d.size; });
 
     //setup the chart
     var bubbles = svg.append("g")
@@ -420,18 +469,81 @@ d3.csv("/data/groepsgrootte.csv", function(error, data){
         .attr("cy", function(d){ return d.y; })
         .style("fill", function(d) { return color(d["2012"]); });
 
-    //format the text for each bubble
-    bubbles.append("text")
-        .attr("x", function(d){ return d.x; })
-        .attr("y", function(d){ return d.y + 5; })
-        .attr("text-anchor", "middle")
-        .text(function(d){ return d.vogel; })
-        .style({
-            "fill":"white",
-            "font-family":"Helvetica Neue, Helvetica, Arial, san-serif",
-            "font-size": "12px"
-        });
-})
+        //format the text for each bubble
+        // bubbles.append("text")
+        //     .attr("x", function(d){ return d.x; })
+        //     .attr("y", function(d){ return d.y + 5; })
+        //     .attr("text-anchor", "middle")
+        //     .text(function(d){ console.log(d.vogel); return d.vogel; })
+        //     .style({
+        //         "fill":"white",
+        //         "font-family":"Helvetica Neue, Helvetica, Arial, san-serif",
+        //         "font-size": "12px"
+        //     });
+
+  }
+
+  // d3.select(".bubble").on("mouseover", function(d) {
+  //   console.log(d)
+  //          tooltip.transition().duration(200).style("opacity", .9);
+  //          tooltip.html(function(d) {
+  //          return "<span style='color:black'>" + d.vogel + "<br>" + "deelnemers" + "</span>";
+  //          })
+  //          .style("left", (d3.event.pageX) + "px")
+  //          .style("top", (d3.event.pageY - 28) + "px");
+  //      })
+  //      .on("mouseout", function(d) {
+  //          tooltip.transition().duration(500).style("opacity", 0);
+  //      });
+
+
+
+
+
+
+  function forceup() {
+    var force = d3.layout.force()
+        .nodes(nodes)
+        .gravity(0.03)
+        .charge(0)
+        .size([diameter, diameter])
+        .start();
+
+    var drag = force.drag().on("dragstart", dragstart);
+
+    force.on("tick", function () {
+      var q = d3.geom.quadtree(nodes);
+      var i = 0;
+      var n = nodes.length;
+
+      while (++i < n) {
+        q.visit(collide(nodes[i]));
+      }
+
+      svg.selectAll("circle")
+          .attr("cx", function (d) { return d.x; })
+          .attr("cy", function (d) { return d.y; })
+          .on("mouseover", function(d) {
+                   tooltip.transition().duration(200).style("opacity", .9);
+                   tooltip.html(d.vogel)
+                   .style("left", (d3.event.pageX) + "px")
+                   .style("top", (d3.event.pageY - 28) + "px");
+               })
+               .on("mouseout", function(d) {
+                   tooltip.transition().duration(500).style("opacity", 0);
+               });
+
+
+    });
+
+    d3.selectAll("circle")
+      .call(drag);
+  }
+
+  packup();
+  forceup();
+
+  });
 
 })();
 

@@ -63,3 +63,21 @@ De lijnrafiek ziet er op dit moment zo uit:
 # dag 10
 
 Ik heb een begin gemaakt met de zoek functie bij de lijngrafiek. En ook heb ik de data aan de juiste jaren gekoppeld. Ik moet alleen nog voor elkaar krijgen dat de bar chart wordt geupdate in plaats van dat elke keer een nieuwe bar chart wordt getoond. Dit weekend wil ik dit afhebbben, samen met de zoekfunctie. Linken en data uitlezen blijken voor mij zeer lastige onderdelen.
+
+# dag 11
+
+Op de 11e dag heb ik toch moeten veranderen van visualisatie, omdat de tabel niet en foto's niet zijn goedgekeurd als losstaande visualisatie. Ik heb bedacht om per jaar ook de groepsgrootte van de vogels te tonen en hierbij ook de soort vogel. Een standvogel, een trekvogel of beide. Vandaag heb ik alle informatie verzameld en toch weer een nieuwe data set moeten maken. Vandag heb ik de bubble chart gemaakt.
+
+De bubblechart ziet er op dit moment zo uit:
+
+![](/doc/visualisatie7.png)
+
+# dag 12
+
+Nu begint de tijd te dringen. In plaats van dat ik de bubblechart naast de barchart plaats, maar ik er een eigen onderdeel van onder de lijngrafiek. Vandaag heb ik de bubblechart interactief gemaakt. Met de verschillende bubbels kan gespeeld worden doordat er mee gesleept kan worden. Ook verschijnt er nu een juiste tooltip. Ook is het me vandaag gelukt om de barchart te linken aan het jaar van de tijdlijn. Wanneer op een jaar geklikt wordt, wordt het bolletje van de tijdlijn rood, zodat je kan zien over welk jaar de barchart gaat. Aan de zoekfunctie heb ik ook gewerkt vandaag, maar het lukt me nog niet om deze werkend te krijgen.
+
+Mijn project ziet er op dit moment zo uit:
+
+![](/doc/visualisatie8.png)
+![](/doc/visualisatie9.png)
+![](/doc/visualisatie10.png)

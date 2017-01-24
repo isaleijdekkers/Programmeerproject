@@ -138,16 +138,6 @@ body {
 		 border-radius: 3px;
  }
 
- .outer {
-    width: 700px;
-    height: 700px;
-    overflow: auto;
-}
-.inner {
-    width: 800px;
-    height: 600px;
-}
-
 #linegraph {
   position:relative;
 	top: 120px !important;
@@ -158,8 +148,12 @@ body {
 }
 
 #bubblechart {
-  position:absolute;
-	left: 740px !important;
-	top:440px !important;
+  position:relative;
+	/*left: 740px !important;*/
+	top: 260px !important;
 	font-family: optima;
+}
+
+.fixed {
+	color:#f00;
 }
