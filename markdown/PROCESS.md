@@ -81,3 +81,7 @@ Mijn project ziet er op dit moment zo uit:
 ![](/doc/visualisatie8.png)
 ![](/doc/visualisatie9.png)
 ![](/doc/visualisatie10.png)
+
+# dag 12
+
+Vandaag heb ik vooral tijd besteed aan de lijngrafiek. Na een lange tijd is het me gelukt om de zoekbalk te laten werken. Bij de eerste letters lichten de lijnen op die aan de input voldoen. Wat me nog niet lukt is dat de lijnen ook groen blijven wanneer de gebruiker eroverheen hovert. Ook wil ik graag een tooltip laten zien met de vogel die is uitgelicht. Een ander klein onderdeel waar ik aan gewerkt heb is de tooltip van de bubblechart. Morgen wil ik de zoekfunctie gereed hebben, de kleuren hebben uitgezocht voor de bubblechart en een begin maken met het linken van de visualisaties zondat ik me erna kan richten op de opmaak van de site met teksten.

@@ -1,3 +1,4 @@
+var vogels = [];
 window.onload = function() {
 (function() {
 var margin = {top: 30, right: 40, bottom: 30, left: 50},
@@ -151,6 +152,10 @@ svg.call(tip);
 
 // load data
 d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
+
+  data.forEach(function(d) {
+      vogels.push(d.vogel)
+  });
   // scale range of data
   x.domain(data.map(function(d) { return d.vogel; }));
   // y.domain([0, d3.max(data, function(d) { return d.telling16; })]);
@@ -236,7 +241,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
       height = 500  - margin.top  - margin.bottom;
 
   var x = d3.scale.ordinal()
-      .rangeRoundBands([0, width], -.9);
+      .rangeRoundBands([0, width], -0.3);
 
       var y = d3.scale.log()
           .rangeRound([height, 0]);
@@ -267,7 +272,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
       // add d3-tip
         var tip = d3.tip()
             .attr("class", "d3-tip")
-            .offset([15,490])
+            .offset([15,470])
             .html(function(data) {
             return "<span style='color:black'>" + data.name + "</span>"
             });
@@ -307,15 +312,12 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
         .style("text-anchor", "end")
         .text("Aantal keer geteld");
 
-
-
     svg.selectAll(".series")
         .data(seriesData)
       .enter().append("g")
         .attr("class", "series")
         .append("path")
-      .attr("class", "line")
-      .attr("id", "line")
+      .attr("id", function (d) { return d.name; })
       .attr("d", function (d) { return line(d.values); })
       .style("stroke", "lightgrey")
       .style("stroke-width", "1.5px")
@@ -328,6 +330,12 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
         .attr("r", 3)
         .attr("cy", function(d, i) {return y(data[i][currentName]); })
 
+        d3.selectAll(".textpunt")
+        .data(data)
+        .attr("dy", function(d, i) { return y(data[i][currentName]) - 15; })
+        .text(function(d, i) { return (data[i][currentName]) })
+        .style("font-size", "11px")
+
       d3.select(this)
         .style("stroke", "forestgreen")
         .style("stroke-width", "3px")
@@ -337,6 +345,10 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
 
         d3.selectAll(".punt")
         .attr("r", 0)
+
+        d3.selectAll(".textpunt")
+        .style("font-size", "0px")
+
 
       d3.select(this)
         .style("stroke", "lightgrey")
@@ -349,37 +361,21 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
         .enter().append("circle")
           .attr("r", 0)
           .attr("class", "punt")
-          .attr("cx", function(d) { return x(d.jaar) + x.rangeBand() / 2;; })
+          .attr("cx", function(d) { return x(d.jaar) + x.rangeBand() / 2; })
           .attr("cy", function(d) { return y(d["Huismus"]); });
 
+      svg.selectAll(".dot")
+      .data(data)
+        .enter().append("text")
+        .attr("class", "textpunt")
+        .attr("dx", function(d) { return x(d.jaar) + x.rangeBand() / 2 - 11; })
+        .attr("dy", function(d) { return y(d["Huismus"]); });
 
 
+        });
 
+        })();
 
-
-  function myFunction() {
-  // Declare variables
-  var input = document.getElementById("myInput").value;
-  document.getElementById("line").innerHTML = input;
-  console.log(input)
-
-
-  // // Loop through all table rows, and hide those who don't match the search query
-  // for (i = 0; i < tr.length; i++) {
-  //   td = tr[i].getElementsByTagName("td")[0];
-  //   if (td) {
-  //     if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-  //       tr[i].style.display = "";
-  //     } else {
-  //       tr[i].style.display = "none";
-  //     }
-  //   }
-  // }
- }
-
-});
-
-})();
 
 (function() {
 
@@ -411,15 +407,6 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
     //bubbles needs very specific format, convert data to this.
     var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
 
-
-
-  function dblclick(d) {
-    d3.select(this).classed("fixed", d.fixed = false);
-  }
-
-  function dragstart(d) {
-    d3.select(this).classed("fixed", d.fixed = true);
-  }
 
   function collide(node) {
     var r = node.r + 16;
@@ -467,7 +454,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
         .attr("r", function(d){ return d.r; })
         .attr("cx", function(d){ return d.x; })
         .attr("cy", function(d){ return d.y; })
-        .style("fill", function(d) { return color(d["2012"]); });
+        .style("fill", function(d) { return color(d.soort); });
 
         //format the text for each bubble
         // bubbles.append("text")
@@ -509,7 +496,10 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
         .size([diameter, diameter])
         .start();
 
-    var drag = force.drag().on("dragstart", dragstart);
+    var drag = force.drag().on("dragstart", function(d) {
+      d3.select(this)
+      .style("fill", "red")
+    });
 
     force.on("tick", function () {
       var q = d3.geom.quadtree(nodes);
@@ -525,12 +515,16 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
           .attr("cy", function (d) { return d.y; })
           .on("mouseover", function(d) {
                    tooltip.transition().duration(200).style("opacity", .9);
-                   tooltip.html(d.vogel)
+                   tooltip.html("Vogel: " + d.vogel + "<br>" + "Groepsgrootte: " + d["2012"])
                    .style("left", (d3.event.pageX) + "px")
                    .style("top", (d3.event.pageY - 28) + "px");
                })
                .on("mouseout", function(d) {
                    tooltip.transition().duration(500).style("opacity", 0);
+               })
+               .on("click", function(d) {
+                 d3.select(this)
+                 .style("fill", "red")
                });
 
 
@@ -547,4 +541,101 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
 
 })();
 
+}
+console.log(vogels)
+function myFunction() {
+// Declare variables
+  var input = document.getElementById("myInput").value;
+  var filter = input.toUpperCase();
+
+
+// d3.select("#" + input).style("stroke", "red");
+
+
+
+  // array = ["Huismus", "Aalscholver"]
+  // for loop over array heen:
+  //   if input == array[i][0, input.length]:
+  //     licht Huismus lijn op
+  var vogelId = "#" + vogels[i];
+  for (var i = 0; i < vogels.length; i++) {
+    var vogelId = "#" + vogels[i];
+    if (input == 0) {
+      d3.select(vogelId)
+      .style("stroke", "lightgrey");
+    }
+   else if (input == (vogels[i].slice(0, input.length))) {
+        d3.select(vogelId)
+        .style("stroke", "forestgreen")
+        .style("stroke-width", "3px")
+        .on("mouseover", staygreen);
+
+    }
+    else {
+      d3.select(vogelId).style("stroke", "lightgrey");
+    }
+  };
+
+  function staygreen() {
+
+    console.log("hoi")
+    d3.select(vogelId)
+    .style("stroke", "forestgreen")
+    .style("stroke-width", "3px");
+
+  }
+
+
+  // d3.selectAll(".textpunt")
+  // .data(data)
+  // .attr("dy", function(d, i) { return y(data[i][currentName]) - 15; })
+  // .text(function(d, i) { return (data[i][currentName]) })
+  // .style("font-size", "11px")
+
+
+
+
+
+
+
+
+  // var input, filter, table, tr, td, i;
+  // input = document.getElementById("myInput");
+  // filter = input.value.toUpperCase();
+  // table = document.getElementById("myTable");
+  // tr = table.getElementsByTagName("tr");
+
+  // // Loop through all table rows, and hide those who don't match the search query
+  // for (i = 0; i < tr.length; i++) {
+  //   td = tr[i].getElementsByTagName("td")[0];
+  //   if (td) {
+  //     if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+  //       tr[i].style.display = "";
+  //     } else {
+  //       tr[i].style.display = "none";
+  //     }
+  //   }
+  // }
+
+
+  // var vogel = function(d)
+  // console.log(vogel)
+
+// array = ["Huismus", "Aalscholver"]
+// for loop over array heen:
+//   if input == array[i][0, input.length]:
+//     licht Huismus lijn op
+
+
+  // // Loop through all table rows, and hide those who don't match the search query
+  // for (i = 0; i < tr.length; i++) {
+  //   td = tr[i].getElementsByTagName("td")[0];
+  //   if (td) {
+  //     if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+  //       tr[i].style.display = "";
+  //     } else {
+  //       tr[i].style.display = "none";
+  //     }
+  //   }
+  // }
 }
