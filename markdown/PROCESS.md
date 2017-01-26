@@ -82,6 +82,16 @@ Mijn project ziet er op dit moment zo uit:
 ![](/doc/visualisatie9.png)
 ![](/doc/visualisatie10.png)
 
-# dag 12
+# dag 13
 
 Vandaag heb ik vooral tijd besteed aan de lijngrafiek. Na een lange tijd is het me gelukt om de zoekbalk te laten werken. Bij de eerste letters lichten de lijnen op die aan de input voldoen. Wat me nog niet lukt is dat de lijnen ook groen blijven wanneer de gebruiker eroverheen hovert. Ook wil ik graag een tooltip laten zien met de vogel die is uitgelicht. Een ander klein onderdeel waar ik aan gewerkt heb is de tooltip van de bubblechart. Morgen wil ik de zoekfunctie gereed hebben, de kleuren hebben uitgezocht voor de bubblechart en een begin maken met het linken van de visualisaties zondat ik me erna kan richten op de opmaak van de site met teksten.
+
+# dag 14
+
+Op dag 14 heb ik heel wat voor elkaar gekregen. Ik heb de kleuren van de bubblechart gemaakt per vogelsoort en daarbij een legenda. De zoekfunctie kan nu op hoofdletters en op kleine letters zoeken, alleen is het me nog niet gelukt om de lijnen te laten staan wanneer er overheen wordt gegaan met de muis. De tijdlijn is met de barchart gelinkt, de barchart is met de lijngrafiek gelinkt, zodat voor elke vogel de telling van de afgelopen jaren zichtbaar wordt. De lijn grafiek is dan weer met de bubble chart gelinkt zodat er meer info over de vogel gezocht kan worden. Tot slot is de bubblechart weer met de lijngrafiek gelinkt. Een laatste onderdeel is eigenlijk dat ik de lijngrafiek met de bubble chart wil linken, alleen zou ik hiervoor over de lijngrafiek moeten skippen.
+
+Mijn project ziet er op dit moment zo uit:
+
+![](/doc/visualisatie11.png)
+![](/doc/visualisatie12.png)
+![](/doc/visualisatie13.png)

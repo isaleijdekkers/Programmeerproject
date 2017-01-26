@@ -1,69 +1,69 @@
-vogel,soort,2005,2006,2008,2009,2010,2011,2012,2013,2014,2015,2016
-Aalscholver,trekvogel,1.39,4.43,3.26,2.35,2.11,1.82,1.58,2.32,2.07,1.65,1.78
-Appelvink,beide,2.74,3.30,2.90,2.33,1.96,1.86,1.78,1.52,1.69,1.64,1.48
-Blauwe Reiger,trekvogel,1.29,1.36,1.49,1.34,1.20,1.23,1.17,1.21,1.16,1.17,1.24
-Boomklever,standvogel,2.58,2.28,2.04,1.77,1.57,1.54,1.53,1.48,1.48,1.49,1.54
-Boomkruiper,standvogel,1.62,1.36,1.44,1.36,1.29,1.29,1.33,1.26,1.25,1.25,1.27
-Buizerd,standvogel,1.38,1.37,1.53,1.34,1.28,1.28,1.33,1.20,1.28,1.36,1.35
-Ekster,standvogel,2.50,2.42,2.43,2.18,2.02,2.08,2.12,1.89,1.92,1.88,1.92
-Fazant,standvogel,2.34,2.51,2.84,2.22,2.49,2.49,2.52,2.21,2.05,2.24,2.11
-Fuut,trekvogel,1.65,2.22,2.35,2.08,2.66,1.88,1.77,2.29,1.97,2.03,1.82
-Gaai,standvogel,1.76,1.74,1.78,1.63,1.55,1.63,1.55,1.51,1.52,1.48,1.45
-Glanskop,standvogel,2.94,3.37,2.75,2.17,1.81,1.81,1.81,1.76,1.69,1.63,1.77
-Goudhaantje,standvogel,2.06,1.74,1.60,1.40,1.52,1.40,1.76,1.51,1.38,1.51,1.38
-Goudvink,standvogel,2.82,2.23,2.73,2.35,1.92,1.99,1.98,1.80,1.98,1.89,1.81
-Grauwe Gans,beide,26.67,36.85,40.34,25.56,21.20,21.80,19.01,58.69,31.18,26.62,23.87
-Groene Specht,standvogel,1.12,1.15,1.18,1.11,1.06,1.10,1.10,1.08,1.09,1.10,1.08
-Groenling,beide,3.67,3.78,4.27,3.51,3.29,3.40,3.56,3.30,3.11,3.15,3.17
-Grote Bonte Specht,standvogel,1.80,1.25,1.27,1.29,1.20,1.21,1.22,1.21,1.21,1.20,1.20
-Grote Lijster,beide,2.03,1.97,1.94,1.74,1.54,1.33,1.56,1.37,1.52,1.25,1.33
-Grote Mantelmeeuw,standvogel,4.91,6.96,6.19,6.33,5.94,5.32,4.96,5.22,4.13,3.52,4.06
-Grote Zilverreiger,standvogel,1.00,1.34,1.72,1.70,1.14,1.21,1.17,1.31,1.16,1.44,1.44
-Halsbandparkiet,standvogel,4.31,3.61,4.14,3.43,3.40,3.22,3.64,3.07,3.24,3.18,3.05
-Havik,standvogel,1.43,1.36,1.71,1.67,1.06,1.03,1.04,1.05,1.05,1.02,1.09
-Heggemus,standvogel,3.07,2.81,2.84,2.47,1.91,1.83,1.74,1.74,1.63,1.64,1.65
-Houtduif,standvogel,3.98,3.89,3.85,3.23,2.89,0.06,2.57,0.09,0.06,2.25,2.20
-Huismus,standvogel,11.41,12.52,11.18,8.56,8.95,9.20,9.88,8.29,8.02,7.85,7.54
-IJsvogel,standvogel,1.63,0.02,1.14,1.27,1.09,1.05,1.06,1.08,1.06,1.06,1.08
-Kauw,standvogel,5.78,183.47,6.26,5.18,4.33,4.73,5.23,4.09,4.33,3.98,4.24
-Keep,trekvogel,2.61,2.38,3.37,2.70,2.62,3.34,2.11,2.58,1.91,1.98,2.67
-Kleine Bonte Specht,standvogel,1.29,1.29,1.24,1.23,1.12,1.15,1.19,1.12,1.20,1.18,1.17
-Kleine Mantelmeeuw,trekvogel,6.56,5.94,6.04,6.44,6.04,6.93,5.97,2.67,2.35,2.40,2.31
-Kneu,trekvogel,2.11,2.05,1.97,2.86,1.97,2.46,1.82,2.20,2.05,3.64,1.52
-Knobbelzwaan,beide,3.36,3.68,3.50,4.38,2.79,2.62,2.38,3.18,2.74,2.73,3.02
-Kokmeeuw,beide,9.27,9.22,9.52,7.32,6.92,6.63,7.28,7.09,5.94,5.98,5.84
-Kolgans,trekvogel,40.39,126.03,117.89,36.13,42.41,26.79,9.20,43.08,112.78,15.75,22.33
-Koolmees,standvogel,7.55,6.37,5.84,4.89,3.80,4.15,3.59,3.86,3.33,3.30,3.42
-Koperwiek,trekvogel,5.04,3.30,3.10,3.38,2.88,1.76,3.09,1.93,4.83,3.57,4.45
-Kramsvogel,trekvogel,10.61,6.25,7.62,4.46,5.24,3.53,4.44,3.06,6.72,5.81,5.44
-Kuifeend,trekvogel,3.13,5.83,7.18,5.64,5.26,3.95,4.90,5.18,3.54,3.54,5.21
-Kuifmees,standvogel,2.02,2.21,2.29,2.54,1.72,1.80,1.82,1.65,1.54,1.67,1.64
-Matkop,standvogel,2.94,2.44,2.64,2.01,1.79,1.71,1.72,1.70,1.60,1.60,1.59
-Meerkoet,standvogel,4.96,4.83,4.55,4.89,3.86,3.33,2.96,4.82,3.10,2.96,2.96
-Merel,beide,4.33,3.65,3.69,3.41,3.46,2.87,2.62,3.12,2.34,2.44,2.45
-Nijlgans,trekvogel,10.73,5.72,4.11,5.53,2.67,2.59,2.62,2.25,2.82,2.05,2.44
-Pimpelmees,standvogel,4.50,4.44,4.62,3.56,3.09,3.39,3.11,2.98,2.71,2.74,2.85
-Putter,beide,3.87,4.45,3.70,3.49,3.96,3.97,4.77,4.18,4.19,4.42,3.79
-Ransuil,standvogel,1.50,2.90,8.61,4.46,2.71,3.24,3.13,3.71,2.26,3.24,2.96
-Ringmus,standvogel,8.02,6.89,6.69,5.63,6.78,6.68,6.65,6.21,6.00,5.60,5.23
-Roek,beide,8.27,14.48,6.08,5.05,4.18,5.61,8.55,4.39,5.11,3.69,6.31
-Roodborst,beide,1.81,1.81,1.62,1.42,1.37,1.26,1.24,1.29,1.18,1.21,1.23
-Sijs,trekvogel,5.30,3.54,4.56,3.74,4.13,6.34,4.48,4.32,4.21,3.40,4.73
-Sperwer,standvogel,1.22,1.30,1.15,1.22,1.04,1.03,1.02,1.02,1.03,1.03,1.04
-Spreeuw,beide,6.63,7.95,7.77,5.36,5.49,5.45,5.68,4.61,5.55,4.69,4.73
-Staartmees,standvogel,4.23,4.33,4.71,4.58,4.46,5.10,4.20,4.70,3.60,3.99,4.19
-Stadsduif,standvogel,5.65,6.50,4.43,6.06,3.07,3.19,3.31,2.91,2.53,2.42,2.58
-Steenuil,standvogel,1.71,1.38,1.25,1.86,1.27,1.23,1.43,1.26,1.26,1.29,1.41
-Stormmeeuw,standvogel,5.34,15.06,9.66,7.51,4.59,4.65,4.55,5.35,5.08,4.39,4.59
-Tjiftjaf,trekvogel,1.16,1.50,1.52,2.09,1.73,2.91,1.33,1.25,1.16,1.31,1.24
-Torenvalk,beide,1.33,1.32,1.31,1.32,1.11,1.10,1.11,1.10,1.09,1.21,1.18
-Turkse Tortel,standvogel,3.61,3.77,3.54,3.12,2.58,2.70,2.70,2.52,2.59,2.73,2.63
-Vink,beide,4.78,4.71,4.71,3.93,4.14,3.82,3.31,4.17,3.07,3.38,3.27
-Waterhoen,standvogel,2.84,2.91,3.61,2.97,2.15,3.77,2.37,2.40,2.45,2.38,2.31
-Wilde Eend,standvogel,6.75,7.58,7.39,7.60,7.43,5.38,5.96,9.63,5.35,5.38,6.07
-Winterkoning,standvogel,1.35,1.31,1.34,1.28,1.23,1.19,1.17,1.17,1.14,1.14,1.16
-Zanglijster,trekvogel,6.29,1.63,1.51,1.46,1.35,1.41,1.33,1.27,1.34,1.32,1.31
-Zilvermeeuw,standvogel,0,8.09,7.81,6.68,5.99,5.65,6.21,5.97,5.38,4.77,4.72
-Zwarte Kraai,standvogel,1.60,4.21,3.66,3.95,3.29,3.53,3.50,2.87,3.15,2.81,2.95
-Zwarte Mees,standvogel,0.01,2.42,2.70,1.98,1.89,1.67,1.66,1.62,1.59,1.63,1.61
-Zwartkop,trekvogel,0.04,2.07,2.43,1.90,1.29,1.30,1.31,1.30,1.25,1.20,1.22
+vogel,soort,groep
+Aalscholver,trekvogel,2.25
+Appelvink,beide,2.11
+Blauwe Reiger,trekvogel,1.26
+Boomklever,standvogel,1.75
+Boomkruiper,standvogel,1.34
+Buizerd,standvogel,1.34
+Ekster,standvogel,2.12
+Fazant,standvogel,2.37
+Fuut,trekvogel,2.06
+Gaai,standvogel,1.6
+Glanskop,standvogel,2.14
+Goudhaantje,stanvdvogel,1.57
+Goudvink,standvogel,2.14
+Grauwe Gans,beide,30.16
+Groene Specht,standvogel,1.11
+Groenling,beide,3.47
+Grote Bonte Specht,standvogel,1.28
+Grote Lijster,beide,1.6
+Grote Mantelmeeuw,standvogel,5.23
+Grote Zilverreiger,standvogel,1.33
+Halsbandparkiet,standvogel,3.48
+Havik,standvogel,1.23
+Heggemus,standvogel,2.12
+Houtduif,standvogel,2.28
+Huismus,standvogel,9.4
+IJsvogel,standvogel,1.05
+Kauw,standvogel,21.06
+Keep,trekvogel,2.57
+Kleine Bonte Specht,standvogel,1.2
+Kleine Mantelmeeuw,trekvogel,4.88
+Kneu,trekvogel,2.24
+Knobbelzwaan,beide,3.12
+Kokmeeuw,beide,7.36
+Kolgans,trekvogel,53.89
+Koolmees,standvogel,4.55
+Koperwiek,trekvogel,3.39
+Kramsvogel,trekvogel,5.74
+Kuifeend,trekvogel,4.85
+Kuifmees,standvogel,1.9
+Matkop,standvogel,1.98
+Meerkoet,standvogel,3.93
+Merel,beide,3.13
+Nijlgans,trekvogel,3.96
+Pimpelmees,standvogel,3.45
+Putter,beide,4.07
+Ransuil,standvogel,3.52
+Ringmus,standvogel,6.4
+Roek,beide,6.52
+Roodborst,beide,1.4
+Sijs,trekvogel,4.43
+Sperwer,standvogel,1.1
+Spreeuw,beide,5.81
+Staartmees,standvogel,4.37
+Stadsduif,standvogel,3.88
+Steenuil,standvogel,1.4
+Stormmeeuw,standvogel,6.43
+Tjiftjaf,trekvogel,1.56
+Torenvalk,beide,1.2
+Turkse Tortel,standvogel,2.95
+Vink,beide,3.94
+Waterhoen,standvogel,2.74
+Wilde Eend,standvogel,6.77
+Winterkoning,standvogel,1.23
+Zanglijster,trekvogel,1.84
+Zilvermeeuw,standvogel,5.57
+Zwarte Kraai,standvogel,3.23
+Zwarte Mees,standvogel,1.71
+Zwartkop,trekvogel,1.39

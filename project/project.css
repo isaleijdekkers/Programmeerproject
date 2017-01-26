@@ -41,22 +41,22 @@ body {
 }
 
 #timeline {
-  position:relative;
+  position: relative;
   top: 71px !important;
-  left: 50px !important;
+  left: 127px !important;
 }
 
 #nodata {
-  position:relative;
+  position: relative;
 	top: 10px !important;
-  left: 172px !important;
+  left: 200px !important;
 	font-family: optima;
 }
 
 #barchart {
-  position:relative;
+  position: relative;
 	top: 120px !important;
-  left: 75px !important;
+  left: 135px !important;
 	font-family: optima;
 }
 
@@ -94,8 +94,8 @@ body {
 		label {
 			height: 13px;
 			position: relative;
-			top: 460px;
-			left: 70px;
+			top: 470px;
+			left: 140px;
 			font-family: optima;
 	    font-size: 13px;
 
@@ -106,41 +106,10 @@ body {
 
 		}
 
-		#custom-search-form {
-		 margin:0;
-		 margin-top: 5px;
-		 padding: 0;
- }
-
- #custom-search-form .search-query {
-		 padding-right: 3px;
-		 padding-right: 4px \9;
-		 padding-left: 3px;
-		 padding-left: 4px \9;
-		 margin-bottom: 0;
-		 -webkit-border-radius: 3px;
-		 -moz-border-radius: 3px;
-		 border-radius: 3px;
- }
-
- #custom-search-form button {
-		 border: 0;
-		 background: none;
-		 /** belows styles are working good */
-		 padding: 2px 5px;
-		 margin-top: 2px;
-		 position: relative;
-		 left: -28px;
-		 /* IE7-8 doesn't have border-radius, so don't indent the padding */
-		 margin-bottom: 0;
-		 -webkit-border-radius: 3px;
-		 -moz-border-radius: 3px;
-		 border-radius: 3px;
- }
-
 #linegraph {
   position:relative;
 	top: 120px !important;
+	left: 85px !important;
 	font-family: optima;
 	display: block;
 	width: 100%;
@@ -149,22 +118,23 @@ body {
 
 #bubblechart {
   position:relative;
-	/*left: 740px !important;*/
-	top: 260px !important;
+	left: -60px !important;
+	top: 140px !important;
 	font-family: optima;
 }
 
 
 div.tooltip {
     position: absolute;
+		font-family: optima;
     text-align: center;
-    width: 120px;
+    width: 150px;
     height: 50px;
     padding: 2px;
-    font: 12px sans-serif;
+    font-size: 13px;
     background: lightsteelblue;
-    border: 30px;
     border-radius: 5px;
     pointer-events: none;
+		display: inline-block;
 		vertical-align: middle;
 }
