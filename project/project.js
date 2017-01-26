@@ -376,7 +376,24 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
         .style("stroke-width", "1.5px")
 
         var input = document.getElementById("myInput").value;
-        var filter = input.toUpperCase();
+        var filter = input.toUpperCase().replace(/\W/g, '');
+
+        for (var i = 0; i < vogels.length; i++) {
+          var vogelId = "#" + vogels[i].toUpperCase().replace(/\W/g, '');
+          if (filter == 0) {
+            d3.select(vogelId)
+            .style("stroke", "lightgrey")
+            .style("stroke-width", "1.5px");
+          }
+           else if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
+              d3.select(vogelId)
+              .style("stroke", "forestgreen")
+              .style("stroke-width", "3px");
+           }
+          else {
+            d3.select(vogelId).style("stroke", "lightgrey").style("stroke-width", "1.5px");
+          }
+        };
 
         console.log(filter)
 
@@ -418,7 +435,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
           var vogeltje = "path#" + vogel
           d3.selectAll(vogeltje)
             .style("stroke", "lightgrey")
-            .style("stroke-width", "1px");;
+            .style("stroke-width", "1.5px");;
         }
 
 
@@ -637,35 +654,27 @@ function deHighlightCircle(vogel) {
 function myFunction() {
 // Declare variables
   var input = document.getElementById("myInput").value;
-  var filter = input.toUpperCase();
+  var filter = input.toUpperCase().replace(/\W/g, '');
   console.log(filter)
 
 
   for (var i = 0; i < vogels.length; i++) {
-    var vogelId = "#" + vogels[i].toUpperCase();
+    var vogelId = "#" + vogels[i].toUpperCase().replace(/\W/g, '');
     if (filter == 0) {
       d3.select(vogelId)
       .style("stroke", "lightgrey")
-      .style("stroke-width", "1px");
+      .style("stroke-width", "1.5px");
     }
-   else if (filter == (vogels[i].slice(0, input.length).toUpperCase())) {
+   else if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
         d3.select(vogelId)
         .style("stroke", "forestgreen")
-        .style("stroke-width", "3px")
-        .on("mouseover", staygreen);;
+        .style("stroke-width", "3px");
 
     }
     else {
-      d3.select(vogelId).style("stroke", "lightgrey").style("stroke-width", "1px");
+      d3.select(vogelId).style("stroke", "lightgrey").style("stroke-width", "1.5px");
     }
   };
 
-  function staygreen() {
 
-    console.log("hoi")
-    d3.select(vogelId)
-    .style("stroke", "forestgreen")
-    .style("stroke-width", "3px");
-
-  }
 }
