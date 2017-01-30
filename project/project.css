@@ -43,31 +43,31 @@ body {
 #timeline {
   position: relative;
   top: 71px !important;
-  left: 127px !important;
+  left: 70px !important;
 }
 
 #nodata {
   position: relative;
 	top: 10px !important;
-  left: 200px !important;
+  left: 155px !important;
 	font-family: optima;
 }
 
 #barchart {
   position: relative;
 	top: 120px !important;
-  left: 135px !important;
+  left: 70px !important;
 	font-family: optima;
 }
 
 /* style bars */
   .bar {
-    fill: darkgrey;
+    fill: #778899;
   }
 
 /* style bars when hovering */
   .bar:hover {
-    fill: lightgrey;
+    fill: lightsteelblue;
   }
 
 /* style text on axis */
@@ -94,8 +94,8 @@ body {
 		label {
 			height: 13px;
 			position: relative;
-			top: 470px;
-			left: 140px;
+			top: 630px;
+			left: 180px;
 			font-family: optima;
 	    font-size: 13px;
 
@@ -106,10 +106,12 @@ body {
 
 		}
 
+
+
 #linegraph {
   position:relative;
-	top: 120px !important;
-	left: 85px !important;
+	top: 180px !important;
+	left: 80px !important;
 	font-family: optima;
 	display: block;
 	width: 100%;
@@ -119,7 +121,7 @@ body {
 #bubblechart {
   position:relative;
 	left: -60px !important;
-	top: 140px !important;
+	top: 160px !important;
 	font-family: optima;
 }
 
@@ -137,4 +139,92 @@ div.tooltip {
     pointer-events: none;
 		display: inline-block;
 		vertical-align: middle;
+}
+div.tooltipline {
+    position: relative;
+		font-family: optima;
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    padding: 2px;
+    font-size: 13px;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+#title1 {
+    position: relative;
+		font-family: optima;
+    text-align: center;
+		top: 80px;
+    font-size: 18px;
+}
+
+#text1 {
+    position: relative;
+		font-family: optima;
+    text-align: center;
+    font-size: 15px;
+}
+
+#explanation {
+	display: none;
+	position: absolute;
+	font-family: optima;
+	text-align: center;
+	width: 150px;
+	height: 185px;
+	padding: 2px;
+	left: -26px;
+	font-size: 13px;
+	background: lightsteelblue;
+	border-radius: 5px;
+	pointer-events: none;
+	vertical-align: middle;
+}
+#nodata:hover #explanation {
+	display: block;
+}
+
+#text2 {
+	position: relative;
+	font-family: optima;
+	left: -80px;
+	top: 310px;
+	font-size: 15px;
+}
+
+#title2 {
+    position: relative;
+		font-family: optima;
+    text-align: center;
+		top: 160px;
+    font-size: 18px;
+}
+
+#text3 {
+    position: relative;
+		font-family: optima;
+    text-align: center;
+		top: 465px;
+		left: 25px;
+    font-size: 13px;
+}
+
+#title3 {
+    position: relative;
+		font-family: optima;
+    text-align: center;
+		top: 230px;
+		left:20px;
+    font-size: 18px;
+}
+
+#text4 {
+    position: relative;
+		font-family: optima;
+    text-align: center;
+	 top: -370px;
+		left: 315px;
+    font-size: 13px;
 }

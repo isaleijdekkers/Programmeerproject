@@ -137,6 +137,7 @@ var jaar = "telling" + jaar.slice(-2);
   var margin = {top: 20, right: 20, bottom: 120, left: 55},
       width = 1000 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
+      console.log(height)
 
   // set ranges
   var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
@@ -230,8 +231,9 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
       function(d) {
         tip.hide(d, y(d[jaar]))
         var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
-          deHighlightLine(vogel);
-      });
+        deHighlightLine(vogel);
+      })
+
       d3.select("input").on("change", change);
 
 
@@ -243,6 +245,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
         : function(a, b) { return d3.ascending(a.vogel, b.vogel); })
         .map(function(d) { return d.vogel; }))
         .copy();
+        console.log(x0);
 
     svg.selectAll(".bar")
         .sort(function(a, b) { return x0(a.vogel) - x0(b.vogel); });
@@ -316,6 +319,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
       svg.call(tip);
 
   d3.csv("/data/testvogels.csv", function (error, data) {
+    globalData = data;
     var labelVar = 'jaar';
     var varNames = d3.keys(data[0]).filter(function (key) { return key !== labelVar;});
 
@@ -372,7 +376,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
         .style("font-size", "11px")
 
       d3.select(this)
-        .style("stroke", "darkslategray")
+        .style("stroke", "forestgreen")
         .style("stroke-width", "3px")
 })
       .on("mouseout", function(d) {
@@ -402,7 +406,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
           }
            else if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
               d3.select(vogelId)
-              .style("stroke", "darkslategray")
+              .style("stroke", "forestgreen")
               .style("stroke-width", "3px");
            }
           else {
@@ -451,7 +455,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
           var vogeltje = "path#" + vogel
 
           d3.selectAll(vogeltje)
-            .style("stroke", "darkslategray")
+            .style("stroke", "forestgreen")
             .style("stroke-width", "3px");
         }
 
@@ -692,10 +696,19 @@ function myFunction() {
 
 
 
+        var tooltipline = d3.select("#linegraph").append("div")
+            .attr("class", "tooltipline")
+            .style("opacity", 0);
+
+
+
 
 // Declare variables
+var height = 360;
   var input = document.getElementById("myInput").value;
   var filter = input.toUpperCase().replace(/\W/g, '');
+  var y = d3.scale.log()
+      .rangeRound([height, 0]);
 
 
   for (var i = 0; i < vogels.length; i++) {
@@ -707,8 +720,8 @@ function myFunction() {
     }
    else if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
         d3.select(vogelId)
-        .style("stroke", "darkslategray")
-        .style("stroke-width", "3px");
+        .style("stroke", "forestgreen")
+        .style("stroke-width", "3px")
         // tooltipline.transition().duration(200).style("opacity", .9);
         // tooltipline.html(function (d) { return vogels[i] })
         // .attr("dx", 70)
@@ -730,7 +743,13 @@ function myFunction() {
       d3.select(vogelId).style("stroke", "lightgrey").style("stroke-width", "1.5px");
     }
   };
-
+  d3.selectAll(".series")
+  .data(globalData)
+    .enter().append("text")
+    .attr("class", "textje")
+    .attr("dx", 40)
+    .attr("dy", function(d) { return y(d.vogel); })
+    .text("hoi");
 
 
 }

@@ -87,6 +87,18 @@ We hebben elkaar geholpen met de structuur van onze repository. De vraag hierbij
 
 ![Selfie dag 10](/doc/selfie10.png)
 
-**Aanwezig:** Lotte Slim, Eline Jacobse, Isa Leijdekkers, ShanLi Nio, , Jan Maarten de Vries
+**Aanwezig:** Lotte Slim, Eline Jacobse, Isa Leijdekkers, ShanLi Nio, en Jan Maarten de Vries
 
 Vandaag hebben we onze projecten tot nu toe aan elkaar laten zien en we hebben verteld wat we nog moeten doen. Eline is bezig met haar laatste visualisatie, een bar chart. Deze moet nog samen met het linken van de visualisaties afgemaakt worden. Lotte heeft bijna alle interactiviteit af. Alleen het springen naar het juiste land in de tabel werkt nog niet. Shan Li werkt nog aan de tooltip van haar eerste visualisatie. De map en barchart zijn zo goed als klaar, er zitten alleen nog hele kleine bugs in. De pie chart van Jan Maarten klopt nog niet helemaal, dus daar gaat hij nog aan werken. Ook wil hij nog informatie toevoegen over wanneer de albums zijn gemaakt. Isa moet de bubble chart nog afmaken en de zoekfunctie optimaliseren. Ook moeten de visualisaties nog gelinkt worden.
+
+## Week 4 Dag 1 - maandag 30 januari
+
+![Selfie dag 11](/doc/selfie11.png)
+
+**Aanwezig:** Lotte Slim, Eline Jacobse, Isa Leijdekkers, ShanLi Nio en Jan Maarten de Vries
+
+ShanLi: Een bug fixen in haar wereldkaart en in haar hoofd visualisatie, en nog uitleg over de visualisaties maken. Lijkt ons een realistisch plan.
+Eline: Paar legendas en bugs in de bargraph. Lay out goed maken, en tekst erbij. Lijkt ons ook realistisch.
+Isa: tekst overal bij en titels. en een kleine bug. Lijkt ons ook realistisch.
+Lotte: vooral haar buttons moet ze fixen, en verder kijken naar de kleurkeuze. Ook realistisch.
+Jan Maarten: data aanpassen, en een rare bug fixen. Lijkt ons ook wel realistisch.

@@ -201,3 +201,10 @@ d3.csv("/data/groepsgrootte.csv", function(error, data){
     });
 
 })();
+
+
+Elk jaar organiseert de Vogelsbescherming Nederland de tweedaagse Tuinvogeltelling.
+  Dit is een evenement waarbij deelnemers een half uur lang het aantal vogels per soort tellen
+  die zich in de tuin of op het balkon bevinden. De gegevens worden gebruikt om de vogelpopulatie in
+  de gaten te houden. Deze pagina toont de resultaten van afgelopen elf tellingen. Ook wordt informatie over de
+  gemiddelde groepsgrootte en de soort vogel verschaft.
