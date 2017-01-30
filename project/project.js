@@ -51,7 +51,7 @@ var tip = d3.tip()
 svg.call(tip);
 
 // load file
-d3.csv("/data/aantaltellingen.csv", function(error, data) {
+d3.csv("data/aantaltellingen.csv", function(error, data) {
   if (error) throw error;
   // fill dataset in appropriate format
   data.forEach(function(d) {
@@ -178,7 +178,7 @@ var jaar = "telling" + jaar.slice(-2);
 svg.call(tip);
 
 // load data
-d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
+d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 
   data.forEach(function(d) {
       vogels.push(d.vogel)
@@ -315,7 +315,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
       // setup tip
       svg.call(tip);
 
-  d3.csv("/data/testvogels.csv", function (error, data) {
+  d3.csv("data/testvogels.csv", function (error, data) {
     var labelVar = 'jaar';
     var varNames = d3.keys(data[0]).filter(function (key) { return key !== labelVar;});
 
@@ -502,7 +502,7 @@ d3.csv("/data/tuinvogeltelling.csv", function(error, data) {
               return 'translate(' + x + ',' + y + ')';
             })
 
-  d3.csv("/data/groepsgrootte.csv", function(error, data){
+  d3.csv("data/groepsgrootte.csv", function(error, data){
 
     data = data.map(function(d){ d.value = +d.groep; return d; });
 
