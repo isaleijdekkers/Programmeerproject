@@ -39,9 +39,14 @@ Isa Leijdekkers
           de gaten te houden. Deze pagina toont de resultaten van afgelopen elf tellingen. Ook wordt informatie over de
           gemiddelde groepsgrootte en de soort vogel verschaft.</div>
         <div class="col-md-4"></div>
-
       </div>
+
       <div class="container">
+        <div class="row">
+          <div class="col-md-5"></div>
+          <div class="col-md-2" id="button"><button type="button" onclick="clickButton()">Deselecteer alles</button></div>
+          <div class="col-md-5"></div>
+        </div>
       <div class="row">
         <div class="col-md-12" id="timeline"></div>
         <div class="col-sm-1"></div>
@@ -61,7 +66,7 @@ Isa Leijdekkers
         <div class="col-md-4"></div>
         <div class="col-md-12" id="barchart"></div>
         <div class="col-md-2"></div>
-        <div class="col-md-6" id="text5">Klik op de staaf voor de trend van aantal getelde vogels per soort.</div>
+        <div class="col-md-6" id="text5">Klik op de staaf voor bijbehorende trend in telling en groepsgrootte.</div>
         <div class="col-md-4"></div>
         </div>
       </div>
@@ -72,12 +77,13 @@ Isa Leijdekkers
         <div class="col-md-4"></div>
         <div class="col-md-12" id="linegraph">
           <div class="col-md-2"></div>
-          <div class="col-md-6" id="text3">Klik op de lijn voor de betreffende groepsgrootte.</div>
+          <div class="col-md-6" id="text3">Klik op de lijn voor de bijbehorende groepsgrootte.</div>
           <div class="col-md-4"></div>
 
 
           <div class="row">
                 <div class="col-md-10">
+
 
                     <form id="custom-search-form" class="form-search form-horizontal pull-right">
                         <!-- <div class="input-append span12"> -->
@@ -100,7 +106,6 @@ Isa Leijdekkers
     </div>
     <div class="container">
   <div class="row">
-
     <div class="col-md-4"></div>
     <div class="col-md-4" id="title3">Gemiddelde groepsgrootte per vogelsoort</div>
     <div class="col-md-4"></div>

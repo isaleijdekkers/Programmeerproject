@@ -238,10 +238,7 @@ div.tooltipline {
     font-size: 13px;
 }
 
-.series.searched {
-    stroke: dimgrey;
-		stroke-width: 3px;
-}
+
 
 
 .series.clicked {
@@ -273,4 +270,15 @@ div.tooltipline {
     stroke: lightgrey;
 		stroke-width: 1.5px;
 		fill: none;
+}
+
+#button {
+    font-family: optima;
+		top: 40px;
+		left:30px;
+}
+
+.series.searched {
+    stroke: dimgrey;
+		stroke-width: 3px;
 }
