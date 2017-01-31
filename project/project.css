@@ -240,6 +240,10 @@ div.tooltipline {
 
 
 
+.series.searched {
+    stroke: dimgrey;
+		stroke-width: 3px;
+}
 
 .series.clicked {
     stroke: firebrick;
@@ -276,9 +280,4 @@ div.tooltipline {
     font-family: optima;
 		top: 40px;
 		left:27px;
-}
-
-.series.searched {
-    stroke: dimgrey;
-		stroke-width: 3px;
 }
