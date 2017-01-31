@@ -673,7 +673,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
                 highlightBar(vogel);
 
                 $('html, body').animate({
-                  scrollTop: $("#linegraph").offset().top
+                  scrollTop: $("#linegraph").offset().top - 60
                 }, 1000);
 
               });
