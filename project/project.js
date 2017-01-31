@@ -615,7 +615,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
       d3.select(this)
       .classed("hovered", true);
 
-    
+
 
     });
 
@@ -756,4 +756,9 @@ function myFunction() {
 
 
 
+}
+
+function clickButton() {
+  d3.select(".clicked")
+  .classed("clicked", false);
 }
