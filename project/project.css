@@ -265,6 +265,10 @@ div.tooltipline {
 		stroke-width: 3px;
 }
 
+.bar.clicked {
+    fill: lightsteelblue;
+}
+
 .series {
     stroke: lightgrey;
 		stroke-width: 1.5px;

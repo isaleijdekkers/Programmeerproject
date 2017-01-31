@@ -216,6 +216,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
       .enter()
       .append("rect")
       .attr("class", "bar")
+      .attr("id", function (d) { return d.vogel.toUpperCase().replace(/\W/g, ''); })
       .attr("x", function(d) { return x(d.vogel); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d[jaar]); })
@@ -234,11 +235,12 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         // .style("stroke", "lightgrey")
         // .style("stroke-width", "1.5px");
 
-        d3.select(".clicked")
+        d3.selectAll(".clicked")
         .classed("clicked", false);
 
         var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
           highlightLine(vogel);
+          highlightCircle(vogel);
 
           $('html, body').animate({
             scrollTop: $("#linegraph").offset().top - 60
@@ -429,10 +431,10 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         // d3.selectAll(".bubbel")
         // .style("stroke-width", "0px");
 
-        d3.select(".clicked")
+        d3.selectAll(".clicked")
         .classed("clicked", false);
 
-
+        highlightBar(vogel);
         highlightCircle(vogel);
 
         $('html, body').animate({
@@ -652,7 +654,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 
                 var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
 
-                d3.select(".clicked")
+                d3.selectAll(".clicked")
                 .classed("clicked", false);
 
 
@@ -662,6 +664,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
                 // .style("stroke-width", "1.5px");
 
                 highlightLine(vogel);
+                highlightBar(vogel);
 
                 $('html, body').animate({
                   scrollTop: $("#linegraph").offset().top
@@ -701,6 +704,15 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 function highlightCircle(vogel) {
 
   var vogeltje = "circle#" + vogel
+  d3.selectAll(vogeltje)
+  .classed("clicked", function (d,i) {
+  return !d3.select(this).classed("clicked")
+  });
+}
+
+function highlightBar(vogel) {
+
+  var vogeltje = "rect#" + vogel
   d3.selectAll(vogeltje)
   .classed("clicked", function (d,i) {
   return !d3.select(this).classed("clicked")
@@ -756,9 +768,4 @@ function myFunction() {
 
 
 
-}
-
-function clickButton() {
-  d3.select(".clicked")
-  .classed("clicked", false);
 }
