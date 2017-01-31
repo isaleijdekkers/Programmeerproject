@@ -1,4 +1,7 @@
 **Beschrijving**
+
 Mijn project toont informatie over de Nationale Tuinvogeltelling van 2005 tot 2016. Dit is een evenement dat elk jaar rond januari wordt georganiseerd door de Vogelbescherming Nederland. Het is de bedoeling dat de deelnemers een half uur kiezen binnen de twee dagen dat de telling plaatsvindt, en de vogels tellen die zich in de tuin of op het balkon bevinden. De Vogelbescherming gebruikt deze informatie om de Nederlands vogelpopulatie in de gaten te houden. De site is bedoeld om mensen kennis te laten maken met de Tuinvogeltelling, maar ook informatie te verschaffen over de telling voor mensen die het al wel kennen of zelfs hebben meegedaan.
 
 De site bestaat uit 4 verschillende onderdelen. Ten eerste een tijdlijn, waarmee het verhaal begint. Bij het openen van de pagina staat de tijdlijn op 2016, de laatste beschikbare data. Onder de tijdlijn is een bar chart te zien die de telling per vogel voor het gekozen jaar laat zien. Deze is gekoppeld aan het volgende onderdeel, de lijngrafiek. Deze visualisatie toont de verandering van het aantal tellingen per vogel door de jaren heen. De pagina wordt afgesloten met een bubble chart, die aanvullende informatie over de vogels geeft. Deze chart laat namelijk de gemiddelde groepsgrootte per vogel zien en daarbij ook of de soort tot de trekvogel, de standvogel of beide gerekend wordt.
+
+**Technisch design**
