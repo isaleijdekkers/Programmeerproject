@@ -114,4 +114,4 @@ Mijn project ziet er op dit moment zo uit:
 ![](/doc/visualisatie15.png)
 ![](/doc/visualisatie16.png)
 ![](/doc/visualisatie17.png)
-![](/doc/visualisatie17.png)
+![](/doc/visualisatie18.png)
