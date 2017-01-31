@@ -615,6 +615,8 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
       d3.select(this)
       .classed("hovered", true);
 
+    
+
     });
 
     force.on("tick", function () {
@@ -646,7 +648,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
                    d3.select(this)
                    .classed("hovered", false);
                })
-              .on("click", function (d) {
+              .on("dblclick", function (d) {
 
                 var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
 
