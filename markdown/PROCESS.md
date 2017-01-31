@@ -95,3 +95,23 @@ Mijn project ziet er op dit moment zo uit:
 ![](/doc/visualisatie11.png)
 ![](/doc/visualisatie12.png)
 ![](/doc/visualisatie13.png)
+![](/doc/visualisatie14.png)
+
+# dag 15
+
+Na wat feedback op mijn werk te hebben gekregen tijdens de presentatie heb ik enkel wat kleine dingen aangepast. Het hoveren over de bubbels maakte de ballen rood, maar hierdoor verdween de oorspronkelijke kleur. Omdat deze kleur informatie over de soort vogel geeft, laat ik nu enkel de randen van kleur veranderen in plaats van het hele oppervlak.
+
+# dag 16
+
+Op deze dag ben ik wat meer bezig geweest met het design van mijn pagina. Ik heb automatische scroll toegevoegd bij klikken van een bepaalde lijn. Ook heb ik een introductie toegevoegd en uitleg bij de bubblechart. Daarnaast heb  ik ook nog aandacht besteed aan de positionering van de verschillende visualisaties. Om de pagina meer een geheel te laten worden en ook meer begrijpelijk te maken heb ik bij elk van de grafieken een soort instructie toegevoegd.
+
+# dag 17
+
+Op dag 17 heb ik nog een aantal dingen aan de code aangepast en als het goed is heb ik de site af. Vandaag heb ik ervoor gezorgd dat de lijnen in de lijngrafiek blijven staan wanneer er op een staaf of op een cirkel wordt geklikt. Andersom blijft nu ook een cirkel geselecteerd bij het klikken op een lijn. Om een stap verder te gaan in het linken heb ik ervoor gezorgd dat ook de betreffende bubbel wordt geselecteerd bij het klikken op een staaf en andersom dat er ook een staaf wordt geselecteerd bij het klikken op een lijn of cirkel. Verder heb ik een deselecteer knop gemaakt, om alle selecties weer te verwijderen. Anders blijft er elke keer een lijn, een bubbel of een staaf geselecteerd. Om het spelen met de bubbels te optimaliseren heb ik ervoor gekozen dat pas bij een dubbele klik de pagina naar de lijngrafiek scrollt. Anders zou bij het loslaten van een bubbel tijdens het spelen de pagina al naar de lijngrafiek gaan.
+
+Mijn project ziet er op dit moment zo uit:
+
+![](/doc/visualisatie15.png)
+![](/doc/visualisatie16.png)
+![](/doc/visualisatie17.png)
+![](/doc/visualisatie17.png)
