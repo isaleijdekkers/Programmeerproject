@@ -121,7 +121,7 @@ body {
 #bubblechart {
   position:relative;
 	left: -60px !important;
-	top: 160px !important;
+	top: 180px !important;
 	font-family: optima;
 }
 
@@ -190,7 +190,7 @@ div.tooltipline {
 	position: relative;
 	font-family: optima;
 	left: -80px;
-	top: 310px;
+	top: 380px;
 	font-size: 15px;
 }
 
@@ -207,7 +207,7 @@ div.tooltipline {
 		font-family: optima;
     text-align: center;
 		top: 465px;
-		left: 25px;
+		left: 35px;
     font-size: 13px;
 }
 
@@ -215,7 +215,7 @@ div.tooltipline {
     position: relative;
 		font-family: optima;
     text-align: center;
-		top: 230px;
+		top: 250px;
 		left:20px;
     font-size: 18px;
 }
@@ -224,7 +224,49 @@ div.tooltipline {
     position: relative;
 		font-family: optima;
     text-align: center;
-	 top: -370px;
+	 top: -350px;
 		left: 315px;
     font-size: 13px;
+}
+
+#text5 {
+    position: relative;
+		font-family: optima;
+    text-align: center;
+	 top: -420px;
+		left: 100px;
+    font-size: 13px;
+}
+
+.series.searched {
+    stroke: dimgrey;
+		stroke-width: 3px;
+}
+
+
+.series.clicked {
+    stroke: firebrick;
+		stroke-width: 3px;
+}
+
+.series.hovered {
+    stroke: darkslategrey;
+		stroke-width: 3px;
+
+}
+
+.bubbel.clicked {
+    stroke: black;
+		stroke-width: 3px;
+}
+
+.bubbel.hovered {
+    stroke: black;
+		stroke-width: 3px;
+}
+
+.series {
+    stroke: lightgrey;
+		stroke-width: 1.5px;
+		fill: none;
 }

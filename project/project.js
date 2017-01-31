@@ -222,15 +222,27 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
       .attr("height", function(d) { return height - y(d[jaar]); })
       // show tip when hovering over and hide tip when not
       .on("mouseover", function(d) {
-        tip.show(d, y(d[jaar]))
-        var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
-        highlightLine(vogel);
+        tip.show(d, y(d[jaar]));
       })
       .on("mouseout",
       function(d) {
         tip.hide(d, y(d[jaar]))
+      })
+      .on("click", function(d) {
+
+        // d3.selectAll(".series")
+        // .style("stroke", "lightgrey")
+        // .style("stroke-width", "1.5px");
+
+        d3.select(".clicked")
+        .classed("clicked", false);
+
         var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
-          deHighlightLine(vogel);
+          highlightLine(vogel);
+
+          $('html, body').animate({
+            scrollTop: $("#linegraph").offset().top - 60
+          }, 1000);
       });
       d3.select("input").on("change", change);
 
@@ -354,9 +366,9 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         .attr("class", "series")
       .attr("id", function (d) { return d.name.toUpperCase().replace(/\W/g, ''); })
       .attr("d", function (d) { return line(d.values); })
-      .style("stroke", "lightgrey")
-      .style("stroke-width", "1.5px")
-      .style("fill", "none")
+      // .style("stroke", "lightgrey")
+      // .style("stroke-width", "1.5px")
+      // .style("fill", "none")
       .on("mouseover", function(d) {
         tip.show(d, y(d.name))
         currentName = d.name;
@@ -372,8 +384,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         .style("font-size", "11px")
 
       d3.select(this)
-        .style("stroke", "darkslategray")
-        .style("stroke-width", "3px")
+      .classed("hovered", true);
 })
       .on("mouseout", function(d) {
         tip.hide(d, y(d.name))
@@ -386,34 +397,42 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 
         console.log(this)
 
-      d3.select(this)
-        .style("stroke", "lightgrey")
-        .style("stroke-width", "1.5px")
+        d3.select(this)
+        .classed("hovered", false);
+
+      // d3.select(this)
+      //   .style("stroke", "lightgrey")
+      //   .style("stroke-width", "1.5px")
 
         var input = document.getElementById("myInput").value;
         var filter = input.toUpperCase().replace(/\W/g, '');
 
-        for (var i = 0; i < vogels.length; i++) {
-          var vogelId = "#" + vogels[i].toUpperCase().replace(/\W/g, '');
-          if (filter == 0) {
-            d3.select(vogelId)
-            .style("stroke", "lightgrey")
-            .style("stroke-width", "1.5px");
-          }
-           else if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
-              d3.select(vogelId)
-              .style("stroke", "darkslategray")
-              .style("stroke-width", "3px");
-           }
-          else {
-            d3.select(vogelId).style("stroke", "lightgrey").style("stroke-width", "1.5px");
-          }
-        };
-      })
+
+      //   for (var i = 0; i < vogels.length; i++) {
+      //     var vogelId = "#" + vogels[i].toUpperCase().replace(/\W/g, '');
+      //     if (filter == 0) {
+      //       d3.select(vogelId)
+      //       .classed("hovered", false);
+      //     }
+      //       if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
+      //         d3.select(vogelId)
+      //         .style("stroke", "darkslategray")
+      //         .style("stroke-width", "3px");
+      //      }
+      //     else {
+      //       d3.select(vogelId).style("stroke", "lightgrey").style("stroke-width", "1.5px");
+      //     }
+      //   };
+       })
       .on("click", function(d) {
         var vogel = d.name.toUpperCase().replace(/\W/g, '');
-        d3.selectAll(".bubbel")
-        .style("stroke-width", "0px");
+        // d3.selectAll(".bubbel")
+        // .style("stroke-width", "0px");
+
+        d3.select(".clicked")
+        .classed("clicked", false);
+
+
         highlightCircle(vogel);
 
         $('html, body').animate({
@@ -451,17 +470,18 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
           var vogeltje = "path#" + vogel
 
           d3.selectAll(vogeltje)
-            .style("stroke", "darkslategray")
-            .style("stroke-width", "3px");
+          .classed("clicked", function (d,i) {
+          return !d3.select(this).classed("clicked")
+          });
+            // .style("stroke", "darkslategray")
+            // .style("stroke-width", "3px");
+
+  //           d3.selectAll("bar")
+  // .classed("my-selector", function (d, i) {
+  //   return !d3.select(this).classed("my-selector");
+  // });
         }
 
-        function deHighlightLine(vogel) {
-
-          var vogeltje = "path#" + vogel
-          d3.selectAll(vogeltje)
-            .style("stroke", "lightgrey")
-            .style("stroke-width", "1.5px");
-        }
 
 
 (function() {
@@ -498,7 +518,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
             .attr('transform', function(d, i) {
               var height = legendRectSize;
               var x = 0;
-              var y = i * height + 140;
+              var y = i * height + 180;
               return 'translate(' + x + ',' + y + ')';
             })
 
@@ -593,8 +613,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 
     var drag = force.drag().on("dragstart", function(d) {
       d3.select(this)
-      .style("stroke", "black")
-      .style("stroke-width", "3px");
+      .classed("hovered", true);
 
     });
 
@@ -609,7 +628,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 
       svg.selectAll(".bubbel")
           .attr("cx", function (d) { return d.x + 80; })
-          .attr("cy", function (d) { return d.y + 70; })
+          .attr("cy", function (d) { return d.y + 100; })
           .on("mouseover", function(d) {
                    tooltip.transition().duration(200).style("opacity", .9);
                    tooltip.html("<strong>" + d.vogel + "</strong>" + "<br>" + "Groepsgrootte: " + d.groep)
@@ -617,26 +636,28 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
                    .style("top", (d3.event.pageY - 28) + "px");
 
                    d3.select(this)
-                   .style("stroke", "black")
-                   .style("stroke-width", "3px");;
+                   .classed("hovered", true);
                })
                .on("mouseout", function(d) {
                 //  var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
                 //  deHighlightLine(vogel);
                    tooltip.transition().duration(500).style("opacity", 0);
 
-                   d3.selectAll(".bubbel")
-                   .style("stroke-width", "0px")
+                   d3.select(this)
+                   .classed("hovered", false);
                })
               .on("click", function (d) {
 
                 var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
 
+                d3.select(".clicked")
+                .classed("clicked", false);
 
 
-                d3.selectAll(".series")
-                .style("stroke", "lightgrey")
-                .style("stroke-width", "1.5px");
+
+                // d3.selectAll(".series")
+                // .style("stroke", "lightgrey")
+                // .style("stroke-width", "1.5px");
 
                 highlightLine(vogel);
 
@@ -677,10 +698,11 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 
 function highlightCircle(vogel) {
 
-  var vogel = "circle#" + vogel
-  d3.selectAll(vogel)
-  .style("stroke", "black")
-  .style("stroke-width", "3px");
+  var vogeltje = "circle#" + vogel
+  d3.selectAll(vogeltje)
+  .classed("clicked", function (d,i) {
+  return !d3.select(this).classed("clicked")
+  });
 }
 
 
@@ -702,13 +724,11 @@ function myFunction() {
     var vogelId = "#" + vogels[i].toUpperCase().replace(/\W/g, '');
     if (filter == 0) {
       d3.select(vogelId)
-      .style("stroke", "lightgrey")
-      .style("stroke-width", "1.5px");
+      .classed("searched", false);
     }
    else if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
         d3.select(vogelId)
-        .style("stroke", "darkslategray")
-        .style("stroke-width", "3px");
+        .classed("searched", true);
         // tooltipline.transition().duration(200).style("opacity", .9);
         // tooltipline.html(function (d) { return vogels[i] })
         // .attr("dx", 70)
@@ -727,7 +747,8 @@ function myFunction() {
 
     }
     else {
-      d3.select(vogelId).style("stroke", "lightgrey").style("stroke-width", "1.5px");
+      d3.select(vogelId)
+      .classed("searched", false);
     }
   };
 
