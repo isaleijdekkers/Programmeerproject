@@ -136,7 +136,7 @@ var jaar = "telling" + jaar.slice(-2);
   // set ranges
   var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
 
-  // var y = d3.scale.linear().range([height, 0]);
+
   var y = d3.scale.log()
       .rangeRound([height, 0]);
 
@@ -166,7 +166,6 @@ var jaar = "telling" + jaar.slice(-2);
       .offset([-10, 0])
       .html(function(d) {
         return "<span style='color:black'>" + d[jaar] + "</span>";
-      // return "<span style='color:black'>" + d[jaar] + "</span>";
   });
 
 // setup tip
@@ -180,7 +179,6 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
   });
   // scale range of data
   x.domain(data.map(function(d) { return d.vogel; }));
-  // y.domain([0, d3.max(data, function(d) { return d.telling16; })]);
   y.domain([.3, 300000]);
 
   // add x axis
