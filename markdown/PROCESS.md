@@ -62,7 +62,7 @@ De lijnrafiek ziet er op dit moment zo uit:
 
 # dag 10
 
-Ik heb een begin gemaakt met de zoek functie bij de lijngrafiek. En ook heb ik de data aan de juiste jaren gekoppeld. Ik moet alleen nog voor elkaar krijgen dat de bar chart wordt geupdate in plaats van dat elke keer een nieuwe bar chart wordt getoond. Dit weekend wil ik dit afhebbben, samen met de zoekfunctie. Linken en data uitlezen blijken voor mij zeer lastige onderdelen.
+Ik heb een begin gemaakt met de zoekfunctie bij de lijngrafiek. En ook heb ik de data aan de juiste jaren gekoppeld. Ik moet alleen nog voor elkaar krijgen dat de bar chart wordt geupdate in plaats van dat elke keer een nieuwe bar chart wordt getoond. Dit weekend wil ik dit afhebbben, samen met de zoekfunctie. Linken en data uitlezen blijken voor mij zeer lastige onderdelen.
 
 # dag 11
 
