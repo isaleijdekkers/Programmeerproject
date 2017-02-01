@@ -6,6 +6,8 @@ De site bestaat uit 4 verschillende onderdelen. Ten eerste een tijdlijn, waarmee
 
 ![](/doc/pagina1.jpg)
 ![](/doc/pagina2.jpg)
+![](/doc/pagina3.jpg)
+![](/doc/pagina4.jpg)
 
 ##Technisch design
 
@@ -64,7 +66,3 @@ De kleuren heb ik zo gekozen dat de visualisaties een geheel vormen. Ze passen b
 
 ##Resultaat
 Het eindresultaat is zeer anders dan dat ik het aan het begin voor ogen had, maar vind ik beter dan mijn eerste plan. Een belangrijk verschil is de bubble chart in plaats van de series met foto's en het feit dat enkel de barchart update bij het klikken op een jaar. Elke visualisatie voegt steeds wat toe aan de visualisatie ervoor en vormen een geheel door de vogel die in alledrie aanwezig is. De foto's zouden geen extra informatie toevoegen, omdat de top 5 minst en meest getelde vogels uit de barchart opgemaakt kan worden. Toch zijn er een paar dingen die ik zou willen toevoegen als ik meer tijd had gehad. Ten eerste zou ik foto's van elke vogel willen toevoegen die te zien is wanneer er op een bepaalde vogel klikt wordt in één van de drie visualisaties. Nu bestaan de vogels enkel uit een naam, maar een foto zou de site meer compleet maken. Ten tweede zou ik de zoekfunctie willen uitbreiden door ze voor elke visualisatie te laten werken. Ook zou ik de verschillende namen bij de vogels willen zetten die oplichten wanneer de eerste letter in de zoekbalk wordt getypt.
-
-
-
-Clearly describe challenges that your have met during development. Document all important changes that your have made with regard to your design document (from the PROCESS.md). Here, we can see how much you have learned in the past month

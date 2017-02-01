@@ -115,3 +115,7 @@ Mijn project ziet er op dit moment zo uit:
 ![](/doc/visualisatie16.png)
 ![](/doc/visualisatie17.png)
 ![](/doc/visualisatie18.png)
+
+# dag 18
+
+Vandaag report geschreven en positioneringen aangepast. Checkbox werkte niet meer, dus deze heb ik weer gemaakt.

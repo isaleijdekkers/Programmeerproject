@@ -121,11 +121,6 @@ d3.csv("data/aantaltellingen.csv", function(error, data) {
 
         d3.select("#circle2016")
         .style("fill", "red")
-
-        // d3.select("#nodata")
-        // .on("mouseover", function d)
-
-
       });
 })();
 
@@ -230,11 +225,6 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         tip.hide(d, y(d[jaar]))
       })
       .on("click", function(d) {
-
-        // d3.selectAll(".series")
-        // .style("stroke", "lightgrey")
-        // .style("stroke-width", "1.5px");
-
 
 
         d3.selectAll(".clicked")
@@ -374,9 +364,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         .attr("class", "series")
       .attr("id", function (d) { return d.name.toUpperCase().replace(/\W/g, ''); })
       .attr("d", function (d) { return line(d.values); })
-      // .style("stroke", "lightgrey")
-      // .style("stroke-width", "1.5px")
-      // .style("fill", "none")
+
       .on("mouseover", function(d) {
         tip.show(d, y(d.name))
         currentName = d.name;
@@ -393,7 +381,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 
       d3.select(this)
       .classed("hovered", true);
-      console.log(this)
+
 })
       .on("mouseout", function(d) {
         tip.hide(d, y(d.name))
@@ -404,7 +392,6 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         d3.selectAll(".textpunt")
         .style("font-size", "0px")
 
-        console.log(this)
 
         d3.select(this)
         .classed("hovered", false);
@@ -467,13 +454,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
           .classed("clicked", function (d,i) {
           return !d3.select(this).classed("clicked")
           });
-            // .style("stroke", "darkslategray")
-            // .style("stroke-width", "3px");
 
-  //           d3.selectAll("bar")
-  // .classed("my-selector", function (d, i) {
-  //   return !d3.select(this).classed("my-selector");
-  // });
         }
 
 
@@ -576,18 +557,6 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
 
         .style("fill", function(d) { return paletteScale(d.soort); });
 
-        //format the text for each bubble
-        // bubbles.append("text")
-        //     .attr("x", function(d){ return d.x; })
-        //     .attr("y", function(d){ return d.y + 5; })
-        //     .attr("text-anchor", "middle")
-        //     .text(function(d){ console.log(d.vogel); return d.vogel; })
-        //     .style({
-        //         "fill":"white",
-        //         "font-family":"Helvetica Neue, Helvetica, Arial, san-serif",
-        //         "font-size": "12px"
-        //     });
-
   }
 
 
@@ -635,8 +604,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
                    .classed("hovered", true);
                })
                .on("mouseout", function(d) {
-                //  var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
-                //  deHighlightLine(vogel);
+
                    tooltip.transition().duration(500).style("opacity", 0);
 
                    d3.select(this)
@@ -649,11 +617,6 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
                 d3.selectAll(".clicked")
                 .classed("clicked", false);
 
-
-
-                // d3.selectAll(".series")
-                // .style("stroke", "lightgrey")
-                // .style("stroke-width", "1.5px");
                 highlightCircle(vogel);
 
                 highlightLine(vogel);
@@ -739,21 +702,6 @@ function myFunction() {
    else if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
         d3.select(vogelId)
         .classed("searched", true);
-        // tooltipline.transition().duration(200).style("opacity", .9);
-        // tooltipline.html(function (d) { return vogels[i] })
-        // .attr("dx", 70)
-        // .attr("dy", function(data) { return y(data[vogelId]); });
-      //   .style("left", (d3.event.pageX - 34) + "px")
-      // .style("top", (d3.event.pageY - 12) + "px");
-        // tooltip.html(vogels[i].toUpperCase().replace(/\W/g, ''));
-        console.log(vogelId)
-        // tip.show(vogelId)
-
-
-
-
-
-        // tip.show(vogelId);
 
     }
     else {
