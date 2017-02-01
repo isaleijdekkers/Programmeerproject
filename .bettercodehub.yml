@@ -1,0 +1,8 @@
+exclude:
+- /project/backup.js
+- /project/d3.legend.js
+- /project/d3tip.js
+- /project/testvogels.js
+component_depth: 1
+languages:
+- javascript
