@@ -4,6 +4,8 @@ Mijn project toont informatie over de Nationale Tuinvogeltelling van 2005 tot 20
 
 De site bestaat uit 4 verschillende onderdelen. Ten eerste een tijdlijn, waarmee het verhaal begint. Bij het openen van de pagina staat de tijdlijn op 2016, de laatste beschikbare data. Onder de tijdlijn is een bar chart te zien die de telling per vogel voor het gekozen jaar laat zien. Deze is gekoppeld aan het volgende onderdeel, de lijngrafiek. Deze visualisatie toont de verandering van het aantal tellingen per vogel door de jaren heen. De pagina wordt afgesloten met een bubble chart, die aanvullende informatie over de vogels geeft. Deze chart laat namelijk de gemiddelde groepsgrootte per vogel zien en daarbij ook of de soort tot de trekvogel, de standvogel of beide gerekend wordt.
 
+![](/doc/pagina1.jpg)
+
 ##Technisch design
 
 ###Files
@@ -18,7 +20,7 @@ De lijngrafiek is het derde deel van de site. Deze grafiek toont de zelfde soort
 Het laatste onderdeel is de bubble chart. Deze bestaat uit 68 bubbels, voor elke vogel een eigen cirkel. De grootte van de cirkel toont de gemiddelde groepsgrootte per vogel van de jaren 2005 tot 2016. De bubbels laten grofweg zien welke vogels in een grote groep leven en welke soorten in een minder grote groep. Bij een muishover wordt de rand van de cirkel zwart en wordt een tootlip zichtbaar die de naam van de vogel laat zien samen met de exacte groepsgrootte. De chart is gesorteerd op grootte van de bubbels. De cirkels van vogels met de grootste groepsgrootte staan in het midden en daaromheen zijn de kleinere bubbels verzameld. Om de bubble chart nog aantrekkelijker te maken heeft het een speel-element. De bubbels kunnen van plaats veranderd worden door met dezen te slepen. Zo kan de gesorteerde chart veranderd worden. Dit laatste onderdeel bestaat ook uit een tweede belangrijk element. De kleuren geven namelijk aan wat voor soort vogel het is. De donkergroen kleur staat voor standvogel, de oranje kleur staat voor trekvogel en de grijze kleur staat voor beide. Wat deze soorten inhouden wordt naast de bubblechart met tekst kort uitgelegd.
 
 ###Relatie tussen elementen
-Om te beginnen is de tijdlijn gekoppeld aan de barchart. Wanneer op een bolletje van een bepaald jaar wordt geklikt, update de barchart naar de versie met de data van dat jaar. De titel verandert mee en toont het juiste jaar waarvan de data wordt getoond. Wanneer er voor een bepaald jaar is gekozen scrollt de pagina automatisch naar beneden zodat de gehele barchart samen met de tijdlijn in beeld zijn. Hiermee wordt aangegeven dat deze aan elkaar gekopppeld zijn.
+Om te beginnen is de tijdlijn gekoppeld aan de barchart. Wanneer op een bolletje van een bepaald jaar wordt geklikt, update de barchart naar de versie met de data van dat jaar. Hiervoor heb ik de functie drawBarchart geschreven die bij het klikken op een bolletje een bepaald jaar meegeeft. De titel van de chart verandert mee en toont het juiste jaar waarvan de data wordt getoond. Wanneer er voor een bepaald jaar is gekozen scrollt de pagina automatisch naar beneden zodat de gehele barchart samen met de tijdlijn in beeld zijn. Hiermee wordt aangegeven dat deze aan elkaar gekopppeld zijn.
 
 Ten tweede is de barchart gelinkt aan de lijngrafiek en ook de bellendiagram. Bij het klikken op een staaf wordt de lijn van de betreffende vogel in de lijngrafiek rood gekleurd en de juiste cirkel in de bubble chart zwart omlijnd. De pagina scrollt naar de lijngrafiek zodat de link wordt benadrukt. Vanuit hier kan handmatig verder gescrolld worden naar het laatste onderdeel. ook de aangeklikte staaf blijft gehighlight.
 
@@ -30,7 +32,7 @@ Door de elementen zo met elkaar te verbinden vormen de drie visualisaties meer e
 
 ##Belangrijke keuzes
 
-##Visualisaties
+###Visualisaties
 In de eerste dagen van dit project liep ik al gelijk tegen een aantal problemen aan en hierdoor is mijn eerste plan is grotendeels verworpen. Ten eerste wilde ik vanuit een wereldkaart werken en hierop het aantal vogelsoorten per continent laten zien. Als snel kwam ik er achter dat ten eerste deze data moeilijk te vinden was en ten tweede dat er veel te veel vogels zijn om weer te geven. Daarom besloot ik me te focussen op Nederland. Ook hier liep ik tegen het probleem aan dat er te veel vogelsoorten in de Nederland leven. Toevallig had ik net gehoord over de Tuinvogeltelling en besloot ik me hiertoe te beperken. Via de site van Sovon en van de Tuinvogeltelling had ik al heel wat data verzameld, maar niet genoeg om een verhaal op te baseren. Nadat ik gebeld had naar de vogelbescherming kreeg ik een bestand met data van afgelopen tien jaar toegestuurd, maar gegevens over de locaties mochten ze niet weggeven in verband met privacyschending. Om deze reden heb ik het idee van een kaart van Nederland moeten schrappen.
 
 Omdat ik de data van tien jaar had gekregen leek het me logisch om vanuit een tijdlijn te werken. Vanuit deze tijdlijn wilde ik graag de telling per vogel laten zien en ook het onderlinge verschil hiervan. Een bar chart was hiervoor de beste visualisatie, omdat het beide gewenste elementen helder weergeeft.
@@ -41,23 +43,26 @@ Naast de telling per jaar wilde ik de veranderingen door de jaren heen tonen. Da
 
 Om toch nog informatie over de vogels zelf te kunnen bieden heb ik gekozen om de groepsgrootte en de sorot vogel te tonen, als vervanging voor de foto's. Hiervoor heb ik gekozen voor een bubble chart. De grootte van de cirkel geeft de grootte van de groep aan waarin de vogel is gezien. Door deze visualisatie komt het verschil tussen de groepsgroottes goed naar voren. Omdat ook de kleuren van de cirkels gebruikt kunnen worden om een indeling te maken, heb ik per vogel opgezocht of het een trekvogel of een standvogel is. Hierdoor kan de laatste visualisatie details over de vogel weergeven.
 
-##Tijdlijn en staafdiagram
+###Tijdlijn en staafdiagram
 Een tijdlijn met punten die vond ik mooier dan een slider. Wanneer een jaar geselecteerd is heb ik gekozen om de punt rood te maken, zodat het goed zichtbaar is welk jaar wordt getoond bij het laden van de pagina. Voor mij was het belangrijk om het aantal deelnemers per jaar te tonen, omdat dit in relatie staat met het aantal keer dat vogels geteld worden.
 
 De y-as van de barchart was een element waar ik over getwijfeld heb. Als ik een lineaire as zou gebruiken, zou een deel van de bars niet zichtbaar zijn. Maar bij een logaritmische schaal wordt de verhouding tussen de tellingen niet naar waarheid laten zien. Toch heb ik voor dit laatste gekozen omdat ik het belangrijker vind om alle data te laten zien en omdat de getallen in de tooltip staan.
 
-##Lijngrafiek
+###Lijngrafiek
 De lijngrafiek heeft veel tijd gekost. Ten eerste liep ik al gelijk tegen het probleem aan, dat de manieer waarom de data geformat was niet zeer gunstig was om de lijngrafiek mee te maken. Na een lange tijd geprobeerd te hebben om de data via javascript op de juiste manier te formatten voor de lijngrafiek had ik nog niet het gewenste resultaat. Dit is een punt wat erg ingewikkeld was en daarom heb ik ervoor gekozen om dezelfde data, maar op een andere manier ingedeeld, opnieuw in te laden. Op deze manier had ik meer tijd over voor de rest van de pagina. Mijn prioriteit lag bij het werkend maken van de hele site.
 
 Een probleem waar ik tegen aan liep hierbij was wanneer er op een bar of op een bubbel geklikt werd, de lijn die oplichtte in de grafiek weer verdween zodra de muis een lijn had geraakt in de lijngrafiek. Dit kwam door het feit dat ik alle lijnen lichtgrijs maakte wanneer de muis geen lijn meer raakte. Op deze manier werkte het oplichten van de lijn bij het hoveren over de lijngrafiek. De oplossing hiervoor was het gebruiken van d3 classed selection. Hiermee wordt enkel de lijn die wordt aangeraakt aangepast. Op deze manier blijft elke opgelichte lijn staan wanneer er met de muis over andere lijnen heen wordt gegaan.
 
-##bellendiagram
+###Bellendiagram
 Voor de bellendiagram heb ik uiteindelijk gekozen om een speels effect toe te voegen. Ten eerste had ik een statische diagram, maar het paste daardoor niet in het geheel. Het was voor mij een beetje als een grote vlek. Dit heb ik opgelost door de ballen beweegbaar te maken, zodat het een veranderlijke visualisatie is. Hierdoor is het meer aantrekkelijk en minder een vlek. ik heb ervoor gekozen om de tekst niet in de ballen te plaatsen, omdat dit meer onrust tot gevolg had dan helderheid.
 
-##Linken en kleuren
+###Linken en kleuren
 Ten eerste was mijn idee om de visualisaties met elkaar te linken bij het hoveren van de muis. Na dit geprobeerd te hebben werd als snel duidelijk dat dit voor mijn pagina niet zeer effectief is. De visualisaties zou ik dan kleiner moeten maken om ze allemaal op eenzelfde pagina te tonen. Dit zorgde voor veel onrust, dus heb ik besloten om ze op een andere manier te linken. Omdat alle drie de visualisaties dezelfde vogels bevatten, leek het voor mij logisch om dezelfde vogel in alle visualisaties tegelijk op te lichten en dit te bewaren totdat een nieuwe vogel wordt geslecteerd. Hierdoor heb ik er voor gekozen de grafieken pas te linken wanneer geklikt wordt. Om deze link te benadrukken heb ik een automatische scroll toegevoegd van grafiek naar grafiek. Omdat er op deze manier altijd een vogel in alledrie de visualisaties geselecteerd blijft, heb ik een mogelijkheid tot deselecteren toegevoegd. De staafdiagram en de lijn grafiek linken naar de anderen door een enkele klik, maar de bubble chart linkt met de andere grafieken door een dubbele klik. Hier heb ik bewust voor gekozen, zodat de gebruiker met de ballen kan slepen zonder dat de pagina bij het loslaten automatisch naar boven scrollt.
 
 De kleuren heb ik zo gekozen dat de visualisaties een geheel vormen. Ze passen bij introductiefoto en komen terug in elke grafiek. In mijn ogen zijn ze passend bij het thema. Voor de lijngrafiek heb ik drie verschillende kleuren gebruikt. Ten eerste een kleur die lijn krijgt wanneer eroverheen gegaan wordt met de muis. Ten tweede een andere kleur die de lijn aanneemt wanneer naar een vogel wordt gezocht via de zoekbalk. En als laatste een rode kleur die de lijn krijgt wanneer op een stof of op een bubbel geklikt wordt. Hierdoor kunnen de verschillende acties onderscheiden worden.
+
+##Resultaat
+Het eindresultaat is zeer anders dan dat ik het aan het begin voor ogen had, maar vind ik beter dan mijn eerste plan. Een belangrijk verschil is de bubble chart in plaats van de series met foto's en het feit dat enkel de barchart update bij het klikken op een jaar. Elke visualisatie voegt steeds wat toe aan de visualisatie ervoor en vormen een geheel door de vogel die in alledrie aanwezig is. De foto's zouden geen extra informatie toevoegen, omdat de top 5 minst en meest getelde vogels uit de barchart opgemaakt kan worden. Toch zijn er een paar dingen die ik zou willen toevoegen als ik meer tijd had gehad. Ten eerste zou ik foto's van elke vogel willen toevoegen die te zien is wanneer er op een bepaalde vogel klikt wordt in één van de drie visualisaties. Nu bestaan de vogels enkel uit een naam, maar een foto zou de site meer compleet maken. Ten tweede zou ik de zoekfunctie willen uitbreiden door ze voor elke visualisatie te laten werken. Ook zou ik de verschillende namen bij de vogels willen zetten die oplichten wanneer de eerste letter in de zoekbalk wordt getypt.
 
 
 
