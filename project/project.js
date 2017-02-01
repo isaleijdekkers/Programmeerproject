@@ -85,7 +85,7 @@ d3.csv("data/aantaltellingen.csv", function(error, data) {
           .style("stroke", "black")
           // show tip when hovering over and hide tip when not
           .on("mouseover", function(d) {
-            tip.show(d, y(d.tellingen))
+            tip.show(d, y(d.telzlingen))
              d3.select(this)
                .attr("r", 8); })
           .on("mouseout", function(d) {
@@ -216,7 +216,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("id", function (d) { return d.vogel; })
+      .attr("id", function (d) { return d.vogel.replace(/\W/g, ''); })
       .attr("x", function(d) { return x(d.vogel); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d[jaar]); })
@@ -235,8 +235,14 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         // .style("stroke", "lightgrey")
         // .style("stroke-width", "1.5px");
 
+
+
         d3.selectAll(".clicked")
         .classed("clicked", false);
+
+        var vogel = d.vogel.replace(/\W/g, '');
+
+        highlightBar(vogel);
 
         var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
           highlightLine(vogel);
@@ -403,34 +409,16 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         d3.select(this)
         .classed("hovered", false);
 
-      // d3.select(this)
-      //   .style("stroke", "lightgrey")
-      //   .style("stroke-width", "1.5px")
+
 
         var input = document.getElementById("myInput").value;
         var filter = input.toUpperCase().replace(/\W/g, '');
 
 
-      //   for (var i = 0; i < vogels.length; i++) {
-      //     var vogelId = "#" + vogels[i].toUpperCase().replace(/\W/g, '');
-      //     if (filter == 0) {
-      //       d3.select(vogelId)
-      //       .classed("hovered", false);
-      //     }
-      //       if (filter == (vogels[i].slice(0, input.length).toUpperCase().replace(/\W/g, ''))) {
-      //         d3.select(vogelId)
-      //         .style("stroke", "darkslategray")
-      //         .style("stroke-width", "3px");
-      //      }
-      //     else {
-      //       d3.select(vogelId).style("stroke", "lightgrey").style("stroke-width", "1.5px");
-      //     }
-      //   };
        })
       .on("click", function(d) {
-        var vogel = d.name;
-        // d3.selectAll(".bubbel")
-        // .style("stroke-width", "0px");
+        var vogel = d.name.replace(/\W/g, '');
+
 
         d3.selectAll(".clicked")
         .classed("clicked", false);
@@ -438,6 +426,7 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         highlightBar(vogel);
 
         var vogel = d.name.toUpperCase().replace(/\W/g, '');
+        highlightLine(vogel);
         highlightCircle(vogel);
 
         $('html, body').animate({
@@ -665,10 +654,11 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
                 // d3.selectAll(".series")
                 // .style("stroke", "lightgrey")
                 // .style("stroke-width", "1.5px");
+                highlightCircle(vogel);
 
                 highlightLine(vogel);
 
-                var vogel = d.vogel;
+                var vogel = d.vogel.replace(/\W/g, '');
 
                 highlightBar(vogel);
 

@@ -6,6 +6,8 @@ De site bestaat uit 4 verschillende onderdelen. Ten eerste een tijdlijn, waarmee
 
 ##Technisch design
 
+###Files
+
 ###Elementen
 Zoals eerder gezegd bestaat de pagina uit een introductie en 4 interactieve onderdelen. De introductie geeft informatie over wat de Tuinvogeltelling inhoudt en wat voor soort informatie op de site te vinden is. Meteen na de introductie is de tijdlijn geplaatst. Vanuit de tijdlijn begint het verhaal. Wanneer over de verschillende jaren wordt gehoverd veranderen de bolletjes van de jaren van grootte. Daarbij komt een tooltip op met het aantal mensen die hebben deelgenomen aan de telling in dat jaar. Wanneer op een bolletje bij een jaar geklikt wordt, kleurt deze rood. Op deze manier is zichtbaar welk jaar geselecteerd is. Een laatste onderdeel dat ik heb toegevoegd aan de tijdlijn is de tekst die verschijnt wanneer de muis over de tekst "geen data", dat bij het jaar 2007 staat, gaat. Deze tekst legt uit waarom er geen data is voor 2007.
 
@@ -14,6 +16,14 @@ Het tweede onderdeel bestaat uit een bar chart. Deze chart laat de telling per v
 De lijngrafiek is het derde deel van de site. Deze grafiek toont de zelfde soort informatie als de barchart erboven laat zien, maar dan van alle jaren bij elkaar. Hiermee kan de verandering van de tellingen door de jaren heen worden bekeken. Alle vogels zijn in de grafiek te zien, maar door elkaar heen en met een lichte kleur. Om een vogel zichtbaar te maken, moet de gebruiker over de lijn heen met de muis. Wanneer dit gebeurt wordt de lijn dikker, verandert deze van kleur en wordt informatie zichtbaar. Bij de bolletjes, die de punten van de jaren aangeven, staan de tellingen van de geselecteerde vogel van de verschillende jaren. Aan de rechterkant van de opgelichte lijn wordt de naam van de vogel weergegeven. Omdat er zoveel lijnen van vogels zichtbaar zijn in één grafiek is er een zoekfunctie  toegevoegd. Hiermee kan naar een bepaalde vogel gezocht worden, maar ook lichten alle lijnen op van de vogels die beginnen met de ingevoerde letters. Wanneer hier overheen wordt gegaan met de muis kan de informatie bekeken worden. Wanneer de zoekbalk weer leeg is, worden de lijnen weer lichtgrijs.
 
 Het laatste onderdeel is de bubble chart. Deze bestaat uit 68 bubbels, voor elke vogel een eigen cirkel. De grootte van de cirkel toont de gemiddelde groepsgrootte per vogel van de jaren 2005 tot 2016. De bubbels laten grofweg zien welke vogels in een grote groep leven en welke soorten in een minder grote groep. Bij een muishover wordt de rand van de cirkel zwart en wordt een tootlip zichtbaar die de naam van de vogel laat zien samen met de exacte groepsgrootte. De chart is gesorteerd op grootte van de bubbels. De cirkels van vogels met de grootste groepsgrootte staan in het midden en daaromheen zijn de kleinere bubbels verzameld. Om de bubble chart nog aantrekkelijker te maken heeft het een speel-element. De bubbels kunnen van plaats veranderd worden door met dezen te slepen. Zo kan de gesorteerde chart veranderd worden. Dit laatste onderdeel bestaat ook uit een tweede belangrijk element. De kleuren geven namelijk aan wat voor soort vogel het is. De donkergroen kleur staat voor standvogel, de oranje kleur staat voor trekvogel en de grijze kleur staat voor beide. Wat deze soorten inhouden wordt naast de bubblechart met tekst kort uitgelegd.
+
+###Relatie tussen elementen
+
+Om te beginnen is de tijdlijn gekoppeld aan de barchart. Wanneer op een bolletje van een bepaald jaar wordt geklikt, update de barchart naar de versie met de data van dat jaar. De titel verandert mee en toont het juiste jaar waarvan de data wordt getoond. Wanneer er voor een bepaald jaar is gekozen scrollt de pagina automatisch naar beneden zodat de gehele barchart samen met de tijdlijn in beeld zijn. Hiermee wordt aangegeven dat deze aan elkaar gekopppeld zijn.
+
+Ten tweede is de barchart gelinkt aan de lijngrafiek en ook de bellendiagram. Bij het klikken op een staaf wordt de lijn van de betreffende vogel in de lijngrafiek rood gekleurd en de juiste cirkel in de bubble chart zwart omlijnd. De pagina scrollt naar de lijngrafiek zodat de link wordt benadrukt. Vanuit hier kan handmatig verder gescrolld worden naar het laatste onderdeel. ook de aangeklikte staaf blijft gehighlight.
+
+Ook de lijngrafiek is weer gekoppeld aan de andere twee visualisaties. Bij een klik op de lijn scrollt de pagina weer automatisch naar de bubble chart waar de cirkel ook opnieuw wordt gehighlight. Ook de betreffende staaf in de staafgrafiek verandert naar een lichtere kleur. Zo  
 
 
 
