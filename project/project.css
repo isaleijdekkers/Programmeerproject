@@ -181,6 +181,7 @@ div.tooltipline {
 	border-radius: 5px;
 	pointer-events: none;
 	vertical-align: middle;
+	z-index: 1;
 }
 #nodata:hover #explanation {
 	display: block;
