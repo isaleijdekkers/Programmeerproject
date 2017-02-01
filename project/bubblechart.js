@@ -16,12 +16,6 @@ function drawBubblechart() {
       .attr("height", diameter + 100)
       .attr("class", "bubble");
 
-      var tooltip = d3.select("body").append("div")
-          .attr("class", "tooltip")
-          .style("opacity", 0);
-
-          var legendRectSize = 18;
-          var legendSpacing = 4;
 
           var legend = svg.append("g")
             .attr("class", "legend")
@@ -151,18 +145,22 @@ function drawBubblechart() {
                })
               .on("dblclick", function (d) {
 
-                var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
+                var vogelKleineletter = d.vogel.replace(/\W/g, '');
+
+                var vogelHoofdletter = d.vogel.toUpperCase().replace(/\W/g, '');
+
 
                 d3.selectAll(".clicked")
                 .classed("clicked", false);
 
-                highlightCircle(vogel);
+                highlightBar(vogelKleineletter);
+                highlightLine(vogelHoofdletter);
 
-                highlightLine(vogel);
+                highlightCircle(vogelHoofdletter);
 
-                var vogel = d.vogel.replace(/\W/g, '');
 
-                highlightBar(vogel);
+
+
 
                 $('html, body').animate({
                   scrollTop: $("#linegraph").offset().top - 60

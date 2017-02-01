@@ -122,17 +122,20 @@ function drawLinegraph() {
 
        })
       .on("click", function(d) {
-        var vogel = d.name.replace(/\W/g, '');
+
+        var vogelKleineletter = d.name.replace(/\W/g, '');
+
+        var vogelHoofdletter = d.name.toUpperCase().replace(/\W/g, '');
 
 
         d3.selectAll(".clicked")
         .classed("clicked", false);
 
-        highlightBar(vogel);
+        highlightBar(vogelKleineletter);
 
-        var vogel = d.name.toUpperCase().replace(/\W/g, '');
-        highlightLine(vogel);
-        highlightCircle(vogel);
+
+        highlightLine(vogelHoofdletter);
+        highlightCircle(vogelHoofdletter);
 
         $('html, body').animate({
           scrollTop: $("#bubblechart").offset().top

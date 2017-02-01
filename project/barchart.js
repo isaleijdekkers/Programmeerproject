@@ -102,13 +102,15 @@ d3.csv("data/tuinvogeltelling.csv", function(error, data) {
         d3.selectAll(".clicked")
         .classed("clicked", false);
 
-        var vogel = d.vogel.replace(/\W/g, '');
+        var vogelKleineletter = d.vogel.replace(/\W/g, '');
 
-        highlightBar(vogel);
 
-        var vogel = d.vogel.toUpperCase().replace(/\W/g, '');
-          highlightLine(vogel);
-          highlightCircle(vogel);
+        var vogelHoofdletter = d.vogel.toUpperCase().replace(/\W/g, '');
+
+        highlightBar(vogelKleineletter);
+
+          highlightLine(vogelHoofdletter);
+          highlightCircle(vogelHoofdletter);
 
           $('html, body').animate({
             scrollTop: $("#linegraph").offset().top - 60

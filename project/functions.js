@@ -1,6 +1,6 @@
-function highlightLine(vogel) {
+function highlightLine(vogelHoofdletter) {
 
-  var vogeltje = "path#" + vogel
+  var vogeltje = "path#" + vogelHoofdletter
 
   d3.selectAll(vogeltje)
   .classed("clicked", function (d,i) {
@@ -9,18 +9,18 @@ function highlightLine(vogel) {
 
 }
 
-function highlightCircle(vogel) {
+function highlightCircle(vogelHoofdletter) {
 
-  var vogeltje = "circle#" + vogel
+  var vogeltje = "circle#" + vogelHoofdletter
   d3.selectAll(vogeltje)
   .classed("clicked", function (d,i) {
   return !d3.select(this).classed("clicked")
   });
 }
 
-function highlightBar(vogel) {
+function highlightBar(vogelKleineletter) {
 
-  var vogeltje = "rect#" + vogel
+  var vogeltje = "rect#" + vogelKleineletter
   d3.selectAll(vogeltje)
   .classed("clicked", function (d,i) {
   return !d3.select(this).classed("clicked")
