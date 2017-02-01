@@ -94,8 +94,8 @@ body {
 		label {
 			height: 13px;
 			position: relative;
-			top: 730px;
-			left: 180px;
+			top: 130px;
+			left: -645px;
 			font-family: optima;
 	    font-size: 13px;
 
@@ -233,8 +233,8 @@ div.tooltipline {
     position: relative;
 		font-family: optima;
     text-align: center;
-	 top: -420px;
-		left: 100px;
+	  top: -420px;
+		left: 290px;
     font-size: 13px;
 }
 
@@ -278,6 +278,6 @@ div.tooltipline {
 
 #button {
     font-family: optima;
-		top: 40px;
+		top: 770px;
 		left:27px;
 }
