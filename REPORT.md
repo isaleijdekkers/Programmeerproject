@@ -4,11 +4,11 @@ Mijn project toont informatie over de Nationale Tuinvogeltelling van 2005 tot 20
 
 De site bestaat uit 4 verschillende onderdelen. Een tijdlijn, een bar chart die informatie per jaar toont, een lijngrafiek die elke telling van afgelopen elf jaar weergeeft en tot slot een bubble chart die meer gedetailleerde informatie over de vogels zelf toevoegt.
 
-![](doc/screenshot1)
-![](doc/screenshot2)
-![](doc/screenshot3)
-![](doc/screenshot4)
-![](doc/screenshot5)
+![](doc/screenshot1.png)
+![](doc/screenshot2.png)
+![](doc/screenshot3.png)
+![](doc/screenshot4.png)
+![](doc/screenshot5.png)
 
 ##Technisch design
 

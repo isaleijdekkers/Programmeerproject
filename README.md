@@ -19,11 +19,11 @@ Na de lijngrafiek wordt de gebruiker naar de laatste visualisatie geleid. Deze t
 
 ## Screenshots
 
-![](doc/screenshot1)
-![](doc/screenshot2)
-![](doc/screenshot3)
-![](doc/screenshot4)
-![](doc/screenshot5)
+![](doc/screenshot1.png)
+![](doc/screenshot2.png)
+![](doc/screenshot3.png)
+![](doc/screenshot4.png)
+![](doc/screenshot5.png)
 
 ## Bronnen
 
