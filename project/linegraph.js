@@ -43,10 +43,10 @@ function drawLinegraph() {
       // setup tip
       svg.call(tip);
 
-  d3.csv("data/vogelslijngrafiek.csv", function (error, data) {
+  d3.csv("data/birdslinegraph.csv", function (error, data) {
     if (error) throw error;
-    
-    var labelVar = 'jaar';
+
+    var labelVar = 'year';
     var varNames = d3.keys(data[0]).filter(function (key) { return key !== labelVar;});
 
     var seriesData = varNames.map(function (name) {
@@ -59,7 +59,7 @@ function drawLinegraph() {
     });
 
 
-    x.domain(data.map(function (d) { return d.jaar; }));
+    x.domain(data.map(function (d) { return d.year; }));
     y.domain([.25, 250000]);
 
     svg.append("g")
@@ -125,19 +125,19 @@ function drawLinegraph() {
        })
       .on("click", function(d) {
 
-        var vogelKleineletter = d.name.replace(/\W/g, '');
+        var birdLowercase = d.name.replace(/\W/g, '');
 
-        var vogelHoofdletter = d.name.toUpperCase().replace(/\W/g, '');
+        var birdUppercase = d.name.toUpperCase().replace(/\W/g, '');
 
 
         d3.selectAll(".clicked")
         .classed("clicked", false);
 
-        highlightBar(vogelKleineletter);
+        highlightBar(birdLowercase);
 
 
-        highlightLine(vogelHoofdletter);
-        highlightCircle(vogelHoofdletter);
+        highlightLine(birdUppercase);
+        highlightCircle(birdUppercase);
 
         $('html, body').animate({
           scrollTop: $("#bubblechart").offset().top
@@ -154,14 +154,14 @@ function drawLinegraph() {
         .enter().append("circle")
           .attr("r", 0)
           .attr("class", "punt")
-          .attr("cx", function(d) { return x(d.jaar) + x.rangeBand() / 2; })
+          .attr("cx", function(d) { return x(d.year) + x.rangeBand() / 2; })
           .attr("cy", function(d) { return y(d["Huismus"]); });
 
       svg.selectAll(".dot")
       .data(data)
         .enter().append("text")
         .attr("class", "textpunt")
-        .attr("dx", function(d) { return x(d.jaar) + x.rangeBand() / 2 - 11; })
+        .attr("dx", function(d) { return x(d.year) + x.rangeBand() / 2 - 11; })
         .attr("dy", function(d) { return y(d["Huismus"]); });
 
 

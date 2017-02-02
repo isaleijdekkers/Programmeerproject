@@ -1,5 +1,5 @@
-function drawBarchart(jaar) {
-var jaar = "telling" + jaar.slice(-2);
+function drawBarchart(year) {
+  var year = "count" + year.slice(-2);
 
 
   // set dimensions of canvas
@@ -39,21 +39,21 @@ var jaar = "telling" + jaar.slice(-2);
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
-        return "<span style='color:black'>" + d[jaar] + "</span>";
+        return "<span style='color:black'>" + d[year] + "</span>";
   });
 
 // setup tip
 svg.call(tip);
 
 // load data
-d3.csv("data/vogelsstaafdiagram.csv", function(error, data) {
+d3.csv("data/birdsbarchart.csv", function(error, data) {
   if (error) throw error;
 
   data.forEach(function(d) {
-      vogels.push(d.vogel)
+      birds.push(d.bird)
   });
   // scale range of data
-  x.domain(data.map(function(d) { return d.vogel; }));
+  x.domain(data.map(function(d) { return d.bird; }));
   y.domain([.3, 300000]);
 
   // add x axis
@@ -84,18 +84,18 @@ d3.csv("data/vogelsstaafdiagram.csv", function(error, data) {
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("id", function (d) { return d.vogel.replace(/\W/g, ''); })
-      .attr("x", function(d) { return x(d.vogel); })
+      .attr("id", function (d) { return d.bird.replace(/\W/g, ''); })
+      .attr("x", function(d) { return x(d.bird); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d[jaar]); })
-      .attr("height", function(d) { return height - y(d[jaar]); })
+      .attr("y", function(d) { return y(d[year]); })
+      .attr("height", function(d) { return height - y(d[year]); })
       // show tip when hovering over and hide tip when not
       .on("mouseover", function(d) {
-        tip.show(d, y(d[jaar]));
+        tip.show(d, y(d[year]));
       })
       .on("mouseout",
       function(d) {
-        tip.hide(d, y(d[jaar]))
+        tip.hide(d, y(d[year]))
       })
       .on("click", function(d) {
 
@@ -103,15 +103,15 @@ d3.csv("data/vogelsstaafdiagram.csv", function(error, data) {
         d3.selectAll(".clicked")
         .classed("clicked", false);
 
-        var vogelKleineletter = d.vogel.replace(/\W/g, '');
+        var birdLowercase = d.bird.replace(/\W/g, '');
 
 
-        var vogelHoofdletter = d.vogel.toUpperCase().replace(/\W/g, '');
+        var birdUppercase = d.bird.toUpperCase().replace(/\W/g, '');
 
-        highlightBar(vogelKleineletter);
+        highlightBar(birdLowercase);
 
-          highlightLine(vogelHoofdletter);
-          highlightCircle(vogelHoofdletter);
+          highlightLine(birdUppercase);
+          highlightCircle(birdUppercase);
 
           $('html, body').animate({
             scrollTop: $("#linegraph").offset().top - 60
@@ -124,20 +124,20 @@ d3.csv("data/vogelsstaafdiagram.csv", function(error, data) {
 
     // Copy-on-write since tweens are evaluated after a delay.
     var x0 = x.domain(data.sort(this.checked
-        ? function(a, b) { return b[jaar] - a[jaar]; }
-        : function(a, b) { return d3.ascending(a.vogel, b.vogel); })
-        .map(function(d) { return d.vogel; }))
+        ? function(a, b) { return b[year] - a[year]; }
+        : function(a, b) { return d3.ascending(a.bird, b.bird); })
+        .map(function(d) { return d.bird; }))
         .copy();
 
     svg.selectAll(".bar")
-        .sort(function(a, b) { return x0(a.vogel) - x0(b.vogel); });
+        .sort(function(a, b) { return x0(a.burd) - x0(b.bird); });
 
     var transition = svg.transition().duration(750),
         delay = function(d, i) { return i * 20; };
 
     transition.selectAll(".bar")
         .delay(delay)
-        .attr("x", function(d) { return x0(d.vogel); });
+        .attr("x", function(d) { return x0(d.bird); });
 
     transition.select(".x.axis")
         .call(xAxis)

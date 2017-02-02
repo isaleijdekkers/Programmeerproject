@@ -119,3 +119,7 @@ Mijn project ziet er op dit moment zo uit:
 # dag 18
 
 Vandaag report geschreven en positioneringen aangepast. Checkbox werkte niet meer, dus deze heb ik weer gemaakt.
+
+# dag 19
+
+De code is af, en mooi gemaakt. Variabele namen heb ik veranderd. Laatste fingen van het verslag afgemaakt!

@@ -51,6 +51,8 @@ Een tijdlijn met punten die vond ik mooier dan een slider. Wanneer een jaar gese
 
 De y-as van de barchart was een element waar ik over getwijfeld heb. Als ik een lineaire as zou gebruiken, zou een deel van de bars niet zichtbaar zijn. Maar bij een logaritmische schaal wordt de verhouding tussen de tellingen niet naar waarheid laten zien. Toch heb ik voor dit laatste gekozen omdat ik het belangrijker vind om alle data te laten zien en omdat de getallen in de tooltip staan.
 
+Een probleem waar ik mee zat is dat zodra ik de bar chart een id is geef die gelijk is aan de id in functie voor het zoeken naar een lijn, werkt het highlighten van de bar niet. Om deze reden heb ik ervoor gekozen de id van de barchart de naam van de vogel in kleine letters te geven. Hierom krijgt de highlightBar een argument mee dan highlightLine en highlightCircle.
+
 ###Lijngrafiek
 De lijngrafiek heeft veel tijd gekost. Ten eerste liep ik al gelijk tegen het probleem aan, dat de manieer waarom de data geformat was niet zeer gunstig was om de lijngrafiek mee te maken. Na een lange tijd geprobeerd te hebben om de data via javascript op de juiste manier te formatten voor de lijngrafiek had ik nog niet het gewenste resultaat. Dit is een punt wat erg ingewikkeld was en daarom heb ik ervoor gekozen om dezelfde data, maar op een andere manier ingedeeld, opnieuw in te laden. Op deze manier had ik meer tijd over voor de rest van de pagina. Mijn prioriteit lag bij het werkend maken van de hele site.
 

@@ -20,7 +20,7 @@ function drawBubblechart() {
           var legend = svg.append("g")
             .attr("class", "legend")
             .selectAll("g")
-            .data(values)
+            .data(groups)
             .enter()
             .append("g")
             .attr('transform', function(d, i) {
@@ -30,10 +30,10 @@ function drawBubblechart() {
               return 'translate(' + x + ',' + y + ')';
             })
 
-  d3.csv("data/groepsgrootte.csv", function(error, data){
+  d3.csv("data/groupsize.csv", function(error, data){
     if (error) throw error;
 
-    data = data.map(function(d){ d.value = +d.groep; return d; });
+    data = data.map(function(d){ d.value = +d.groupsize; return d; });
 
 
 
@@ -87,9 +87,9 @@ function drawBubblechart() {
     bubbles.append("circle")
         .attr("r", function(d){ return d.r; })
         .attr("class", "bubbel")
-        .attr("id", function(d){ return d.vogel.toUpperCase().replace(/\W/g, ''); })
+        .attr("id", function(d){ return d.bird.toUpperCase().replace(/\W/g, ''); })
 
-        .style("fill", function(d) { return paletteScale(d.soort); });
+        .style("fill", function(d) { return paletteScale(d.group); });
 
   }
 
@@ -130,7 +130,7 @@ function drawBubblechart() {
           .attr("cy", function (d) { return d.y + 100; })
           .on("mouseover", function(d) {
                    tooltip.transition().duration(200).style("opacity", .9);
-                   tooltip.html("<strong>" + d.vogel + "</strong>" + "<br>" + "Groepsgrootte: " + d.groep)
+                   tooltip.html("<strong>" + d.bird + "</strong>" + "<br>" + "Groepsgrootte: " + d.groupsize)
                    .style("left", (d3.event.pageX) + "px")
                    .style("top", (d3.event.pageY - 28) + "px");
 
@@ -146,18 +146,18 @@ function drawBubblechart() {
                })
               .on("dblclick", function (d) {
 
-                var vogelKleineletter = d.vogel.replace(/\W/g, '');
+                var birdLowercase = d.bird.replace(/\W/g, '');
 
-                var vogelHoofdletter = d.vogel.toUpperCase().replace(/\W/g, '');
+                var birdUppercase = d.bird.toUpperCase().replace(/\W/g, '');
 
 
                 d3.selectAll(".clicked")
                 .classed("clicked", false);
 
-                highlightBar(vogelKleineletter);
-                highlightLine(vogelHoofdletter);
+                highlightBar(birdLowercase);
+                highlightLine(birdUppercase);
 
-                highlightCircle(vogelHoofdletter);
+                highlightCircle(birdUppercase);
 
 
 
@@ -184,12 +184,12 @@ function drawBubblechart() {
             legend.append("rect")
               .attr("width", legendRectSize)
               .attr("height", legendRectSize)
-              .style("fill", function(d, i) {return paletteScale(values[i])});
+              .style("fill", function(d, i) {return paletteScale(groups[i])});
 
             legend.append("text")
-              .attr("x", legendRectSize + legendSpacing)
-              .attr('y', legendRectSize - legendSpacing)
-              .text(function(d, i) { return values[i]});
+              .attr("x", legendRectSize + legendSize)
+              .attr('y', legendRectSize - legendSize)
+              .text(function(d, i) { return groups[i]});
 
 
 

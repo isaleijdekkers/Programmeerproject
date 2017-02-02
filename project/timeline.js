@@ -31,19 +31,19 @@ var tip = d3.tip()
             .attr("class", "d3-tip")
             .offset([-10, 0])
             .html(function(d) {
-            return "<span style='color:black'>" + d.tellingen + "<br>" + "deelnemers" + "</span>";
+            return "<span style='color:black'>" + d.count + "<br>" + "deelnemers" + "</span>";
             });
 
 // setup tip
 svg.call(tip);
 
 // load file
-d3.csv("data/aantaltellingen.csv", function(error, data) {
+d3.csv("data/countings.csv", function(error, data) {
   if (error) throw error;
   // fill dataset in appropriate format
   data.forEach(function(d) {
-      d.jaar = d.jaar
-      d.tellingen = +d.tellingen
+      d.year = d.year
+      d.count = +d.count
   });
 
     x.domain([2005, 2016]);
@@ -65,18 +65,18 @@ d3.csv("data/aantaltellingen.csv", function(error, data) {
           .enter().append("circle")
           .attr("class", "dot")
           .attr("r", 5)
-          .attr("id", function(d) { return "circle" + d.jaar; })
-          .attr("cx", function(d) { return x(d.jaar); })
+          .attr("id", function(d) { return "circle" + d.year; })
+          .attr("cx", function(d) { return x(d.year); })
           .attr("cy", -10)
           .style("fill", "darkgrey")
           .style("stroke", "black")
           // show tip when hovering over and hide tip when not
           .on("mouseover", function(d) {
-            tip.show(d, y(d.telzlingen))
+            tip.show(d, y(d.count))
              d3.select(this)
                .attr("r", 8); })
           .on("mouseout", function(d) {
-            tip.hide(d, y(d.tellingen))
+            tip.hide(d, y(d.count))
              d3.select(this)
             .attr("r", 5); })
           .on("click", function(d) {
@@ -88,7 +88,7 @@ d3.csv("data/aantaltellingen.csv", function(error, data) {
 
             document.getElementById("checkbox").checked = false;
 
-          drawBarchart(d.jaar)
+          drawBarchart(d.year)
 
           d3.selectAll(".dot")
           .style("fill", "darkgrey")
@@ -98,7 +98,7 @@ d3.csv("data/aantaltellingen.csv", function(error, data) {
 
          d3.select("#title1")
          .append("text")
-         .text("Aantal getelde vogels per soort in " + d.jaar);
+         .text("Aantal getelde vogels per soort in " + d.year);
 
          $('html, body').animate({
            scrollTop: $("#barchart").offset().top - 150
