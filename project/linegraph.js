@@ -1,24 +1,24 @@
 function drawLinegraph() {
+
   var margin = {top: 20, right: 55, bottom: 30, left: 55},
       width  = 1000 - margin.left - margin.right,
       height = 500  - margin.top  - margin.bottom;
 
   var x = d3.scale.ordinal()
-      .rangeRoundBands([0, width], -0.3);
+      .rangeRoundBands([0, width], - 0.3);
 
-      var y = d3.scale.log()
-          .rangeRound([height, 0]);
-
+  var y = d3.scale.log()
+      .rangeRound([height, 0]);
 
   var xAxis = d3.svg.axis()
       .scale(x)
-      .orient("bottom");
+      .orient('bottom');
 
   var yAxis = d3.svg.axis()
       .scale(y)
-      .orient("left")
+      .orient('left')
       .tickFormat(function (d) {
-        return y.tickFormat(4,d3.format(",d"))(d);
+        return y.tickFormat(4,d3.format(',d'))(d);
         });
 
   var line = d3.svg.line()
@@ -26,24 +26,24 @@ function drawLinegraph() {
       .y(function (d) { return y(d.value); });
 
 
-  var svg = d3.select("#linegraph").append("svg")
-      .attr("width",  width  + margin.left + margin.right)
-      .attr("height", height + margin.top  + margin.bottom)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var svg = d3.select('#linegraph').append('svg')
+      .attr('width',  width  + margin.left + margin.right)
+      .attr('height', height + margin.top  + margin.bottom)
+    .append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
       // add d3-tip
         var tip = d3.tip()
-            .attr("class", "d3-tip")
+            .attr('class', 'd3-tip')
             .offset([15,470])
             .html(function(data) {
-            return "<span style='color:black'>" + data.name + "</span>"
+            return '<span style="color:black">' + data.name + '</span>'
             });
 
       // setup tip
       svg.call(tip);
 
-  d3.csv("data/birdslinegraph.csv", function (error, data) {
+  d3.csv('data/birdslinegraph.csv', function (error, data) {
     if (error) throw error;
 
     var labelVar = 'year';
@@ -62,76 +62,76 @@ function drawLinegraph() {
     x.domain(data.map(function (d) { return d.year; }));
     y.domain([.25, 250000]);
 
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
+    svg.append('g')
+        .attr('class', 'x axis')
+        .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
 
-    svg.append("g")
-        .attr("class", "y axis")
+    svg.append('g')
+        .attr('class', 'y axis')
         .call(yAxis)
-      .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Aantal keer geteld");
+      .append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('y', 6)
+        .attr('dy', '.71em')
+        .style('text-anchor', 'end')
+        .text('Aantal keer geteld');
 
-    svg.selectAll(".series")
+    svg.selectAll('.series')
         .data(seriesData)
-      .enter().append("g")
-        .append("path")
-        .attr("class", "series")
-      .attr("id", function (d) { return d.name.toUpperCase().replace(/\W/g, ''); })
-      .attr("d", function (d) { return line(d.values); })
+      .enter().append('g')
+        .append('path')
+        .attr('class', 'series')
+      .attr('id', function (d) { return d.name.toUpperCase().replace(/\W/g, ''); })
+      .attr('d', function (d) { return line(d.values); })
 
-      .on("mouseover", function(d) {
+      .on('mouseover', function(d) {
         tip.show(d, y(d.name))
         currentName = d.name;
-        d3.selectAll(".punt")
+        d3.selectAll('.punt')
         .data(data)
-        .attr("r", 3)
-        .attr("cy", function(d, i) {return y(data[i][currentName]); })
+        .attr('r', 3)
+        .attr('cy', function(d, i) {return y(data[i][currentName]); })
 
-        d3.selectAll(".textpunt")
+        d3.selectAll('.textpunt')
         .data(data)
-        .attr("dy", function(d, i) { return y(data[i][currentName]) - 15; })
+        .attr('dy', function(d, i) { return y(data[i][currentName]) - 15; })
         .text(function(d, i) { return (data[i][currentName]) })
-        .style("font-size", "11px")
+        .style('font-size', '11px')
 
       d3.select(this)
-      .classed("hovered", true);
+      .classed('hovered', true);
 
 })
-      .on("mouseout", function(d) {
+      .on('mouseout', function(d) {
         tip.hide(d, y(d.name))
 
-        d3.selectAll(".punt")
-        .attr("r", 0)
+        d3.selectAll('.punt')
+        .attr('r', 0)
 
-        d3.selectAll(".textpunt")
-        .style("font-size", "0px")
+        d3.selectAll('.textpunt')
+        .style('font-size', '0px')
 
 
         d3.select(this)
-        .classed("hovered", false);
+        .classed('hovered', false);
 
 
 
-        var input = document.getElementById("myInput").value;
+        var input = document.getElementById('myInput').value;
         var filter = input.toUpperCase().replace(/\W/g, '');
 
 
        })
-      .on("click", function(d) {
+      .on('click', function(d) {
 
         var birdLowercase = d.name.replace(/\W/g, '');
 
         var birdUppercase = d.name.toUpperCase().replace(/\W/g, '');
 
 
-        d3.selectAll(".clicked")
-        .classed("clicked", false);
+        d3.selectAll('.clicked')
+        .classed('clicked', false);
 
         highlightBar(birdLowercase);
 
@@ -140,29 +140,29 @@ function drawLinegraph() {
         highlightCircle(birdUppercase);
 
         $('html, body').animate({
-          scrollTop: $("#bubblechart").offset().top
+          scrollTop: $('#bubblechart').offset().top
         }, 1000);
       });
 
-      var input = document.getElementById("myInput").value;
+      var input = document.getElementById('myInput').value;
       var filter = input.toUpperCase().replace(/\W/g, '');
 
 
       // Add the circles
-      svg.selectAll(".dot")
+      svg.selectAll('.dot')
           .data(data)
-        .enter().append("circle")
-          .attr("r", 0)
-          .attr("class", "punt")
-          .attr("cx", function(d) { return x(d.year) + x.rangeBand() / 2; })
-          .attr("cy", function(d) { return y(d["Huismus"]); });
+        .enter().append('circle')
+          .attr('r', 0)
+          .attr('class', 'punt')
+          .attr('cx', function(d) { return x(d.year) + x.rangeBand() / 2; })
+          .attr('cy', function(d) { return y(d['Huismus']); });
 
-      svg.selectAll(".dot")
+      svg.selectAll('.dot')
       .data(data)
-        .enter().append("text")
-        .attr("class", "textpunt")
-        .attr("dx", function(d) { return x(d.year) + x.rangeBand() / 2 - 11; })
-        .attr("dy", function(d) { return y(d["Huismus"]); });
+        .enter().append('text')
+        .attr('class', 'textpunt')
+        .attr('dx', function(d) { return x(d.year) + x.rangeBand() / 2 - 11; })
+        .attr('dy', function(d) { return y(d['Huismus']); });
 
 
         });

@@ -1,7 +1,5 @@
 function drawBubblechart() {
 
-  var diameter = 500;
-
 
   var bubble = d3.layout.pack()
       .sort(function(a, b) {
@@ -10,19 +8,19 @@ function drawBubblechart() {
       .size([diameter, diameter])
       .padding(1.5);
 
-  var svg = d3.select("#bubblechart")
-      .append("svg")
-      .attr("width", diameter + 400)
-      .attr("height", diameter + 100)
-      .attr("class", "bubble");
+  var svg = d3.select('#bubblechart')
+      .append('svg')
+      .attr('width', diameter + 400)
+      .attr('height', diameter + 100)
+      .attr('class', 'bubble');
 
 
-          var legend = svg.append("g")
-            .attr("class", "legend")
-            .selectAll("g")
+          var legend = svg.append('g')
+            .attr('class', 'legend')
+            .selectAll('g')
             .data(groups)
             .enter()
-            .append("g")
+            .append('g')
             .attr('transform', function(d, i) {
               var height = legendRectSize;
               var x = 0;
@@ -30,7 +28,7 @@ function drawBubblechart() {
               return 'translate(' + x + ',' + y + ')';
             })
 
-  d3.csv("data/groupsize.csv", function(error, data){
+  d3.csv('data/groupsize.csv', function(error, data){
     if (error) throw error;
 
     data = data.map(function(d){ d.value = +d.groupsize; return d; });
@@ -76,20 +74,20 @@ function drawBubblechart() {
     .value(function(d) { return d.size; });
 
     //setup the chart
-    var bubbles = svg.append("g")
-        .attr("transform", "translate(0,0)")
-        .selectAll(".bubble")
+    var bubbles = svg.append('g')
+        .attr('transform', 'translate(0,0)')
+        .selectAll('.bubble')
         .data(nodes)
         .enter();
 
 
     //create the bubbles
-    bubbles.append("circle")
-        .attr("r", function(d){ return d.r; })
-        .attr("class", "bubbel")
-        .attr("id", function(d){ return d.bird.toUpperCase().replace(/\W/g, ''); })
+    bubbles.append('circle')
+        .attr('r', function(d){ return d.r; })
+        .attr('class', 'bubbel')
+        .attr('id', function(d){ return d.bird.toUpperCase().replace(/\W/g, ''); })
 
-        .style("fill", function(d) { return paletteScale(d.group); });
+        .style('fill', function(d) { return paletteScale(d.group); });
 
   }
 
@@ -108,15 +106,15 @@ function drawBubblechart() {
         .size([diameter, diameter])
         .start();
 
-    var drag = force.drag().on("dragstart", function(d) {
+    var drag = force.drag().on('dragstart', function(d) {
       d3.select(this)
-      .classed("hovered", true);
+      .classed('hovered', true);
 
 
 
     });
 
-    force.on("tick", function () {
+    force.on('tick', function () {
       var q = d3.geom.quadtree(nodes);
       var i = 0;
       var n = nodes.length;
@@ -125,34 +123,34 @@ function drawBubblechart() {
         q.visit(collide(nodes[i]));
       }
 
-      svg.selectAll(".bubbel")
-          .attr("cx", function (d) { return d.x + 80; })
-          .attr("cy", function (d) { return d.y + 100; })
-          .on("mouseover", function(d) {
-                   tooltip.transition().duration(200).style("opacity", .9);
-                   tooltip.html("<strong>" + d.bird + "</strong>" + "<br>" + "Groepsgrootte: " + d.groupsize)
-                   .style("left", (d3.event.pageX) + "px")
-                   .style("top", (d3.event.pageY - 28) + "px");
+      svg.selectAll('.bubbel')
+          .attr('cx', function (d) { return d.x + 80; })
+          .attr('cy', function (d) { return d.y + 100; })
+          .on('mouseover', function(d) {
+                   tooltip.transition().duration(200).style('opacity', .9);
+                   tooltip.html('<strong>' + d.bird + '</strong>' + '<br>' + 'Groepsgrootte: ' + d.groupsize)
+                   .style('left', (d3.event.pageX) + 'px')
+                   .style('top', (d3.event.pageY - 28) + 'px');
 
                    d3.select(this)
-                   .classed("hovered", true);
+                   .classed('hovered', true);
                })
-               .on("mouseout", function(d) {
+               .on('mouseout', function(d) {
 
-                   tooltip.transition().duration(500).style("opacity", 0);
+                   tooltip.transition().duration(500).style('opacity', 0);
 
                    d3.select(this)
-                   .classed("hovered", false);
+                   .classed('hovered', false);
                })
-              .on("dblclick", function (d) {
+              .on('dblclick', function (d) {
 
                 var birdLowercase = d.bird.replace(/\W/g, '');
 
                 var birdUppercase = d.bird.toUpperCase().replace(/\W/g, '');
 
 
-                d3.selectAll(".clicked")
-                .classed("clicked", false);
+                d3.selectAll('.clicked')
+                .classed('clicked', false);
 
                 highlightBar(birdLowercase);
                 highlightLine(birdUppercase);
@@ -164,14 +162,14 @@ function drawBubblechart() {
 
 
                 $('html, body').animate({
-                  scrollTop: $("#linegraph").offset().top - 60
+                  scrollTop: $('#linegraph').offset().top - 60
                 }, 1000);
 
               });
 
     });
 
-    d3.selectAll(".bubbel")
+    d3.selectAll('.bubbel')
       .call(drag);
 
   }
@@ -181,13 +179,13 @@ function drawBubblechart() {
 
 
 
-            legend.append("rect")
-              .attr("width", legendRectSize)
-              .attr("height", legendRectSize)
-              .style("fill", function(d, i) {return paletteScale(groups[i])});
+            legend.append('rect')
+              .attr('width', legendRectSize)
+              .attr('height', legendRectSize)
+              .style('fill', function(d, i) {return paletteScale(groups[i])});
 
-            legend.append("text")
-              .attr("x", legendRectSize + legendSize)
+            legend.append('text')
+              .attr('x', legendRectSize + legendSize)
               .attr('y', legendRectSize - legendSize)
               .text(function(d, i) { return groups[i]});
 
