@@ -280,19 +280,19 @@ div.tooltip {
 	top: 2080px;
 }
 
+/* style information */
 #about {
-	padding: 40px;
+	background: lightgrey;
 	font-family: optima;
 	font-size: 14px;
+	padding: 40px;
 	position: relative;
   text-align: center;
 	top: 300px;
-	background: grey;
 	width: 1270px;
 }
 
+/* style title */
 #title4 {
-
 	font-size: 16px;
-
 }
