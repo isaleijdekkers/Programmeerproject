@@ -4,6 +4,8 @@ Vogelsoorten in Nederland
 Isa Leijdekkers
 10606467
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/isaleijdekkers/Programmeerproject)](https://bettercodehub.com)
+
 ## Verhaal
 
 Op 28 en 29 januari dit jaar heeft de 14e editie van de jaarlijkse tuinvogeltelling plaats gevonden. Dit is een evenement, georganiseerd door de Vogelbescherming Nederland, waarbij de deelnemers een half uur lang de verschillende vogels tellen die zich in de tuin of op het balkon bevinden. Vogels die over de tuin heen vliegen tellen niet mee. Het aantal vogels van een bepaalde soort moet worden bijgehouden. De resultaten gebruikt de Vogelbescherming om de vogelpopulatie in Nederland in de gaten te houden. De getelde soorten bestaat uit een lijst van 68 verschillende vogels.
