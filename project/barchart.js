@@ -1,3 +1,8 @@
+/*
+* Isa Leijdekkers
+* 10606467
+*/
+
 function drawBarchart(year) {
   var year = 'count' + year.slice(-2);
 
@@ -30,7 +35,7 @@ function drawBarchart(year) {
       .orient('left')
       .ticks(10)
       .tickFormat(function (d) {
-      return y.tickFormat(4,d3.format(',d'))(d);
+        return y.tickFormat(4,d3.format(',d'))(d);
       });
 
   // add d3-tip
@@ -46,8 +51,11 @@ function drawBarchart(year) {
 
   // load data
   d3.csv('data/birdsbarchart.csv', function(error, data) {
+
+    // throw error if error
     if (error) throw error;
 
+    // push birdnames in array
     data.forEach(function(d) {
       birds.push(d.bird);
     });
@@ -78,8 +86,10 @@ function drawBarchart(year) {
        .style('text-anchor', 'end')
        .text('Aantal keer geteld');
 
-    // Add bar chart
-    // show tip when hovering over and hide tip when not
+    // add bars
+    // show tip on mouse hover
+    // highlight bird in all graphs on click
+    // scroll to next graph on click
     svg.selectAll('.bar')
        .data(data)
        .enter()
@@ -101,14 +111,14 @@ function drawBarchart(year) {
          var birdUppercase = d.bird.toUpperCase().replace(/\W/g, '');
 
          d3.selectAll('.clicked')
-         .classed('clicked', false);
+           .classed('clicked', false);
 
          highlightBar(birdLowercase);
          highlightLine(birdUppercase);
-         highlightCircle(birdUppercase);
+         highlightBubble(birdUppercase);
 
          $('html, body').animate({
-           scrollTop: $('#linegraph').offset().top - 60
+           scrollTop: $('#linegraph').offset().top - 110
           }, 1000);
 
        });
@@ -117,7 +127,7 @@ function drawBarchart(year) {
 
     function change(d) {
 
-      // Copy-on-write since tweens are evaluated after a delay.
+      // copy-on-write since tweens are evaluated after a delay
       var x0 = x.domain(data.sort(this.checked
         ? function(a, b) { return b[year] - a[year]; }
         : function(a, b) { return d3.ascending(a.bird, b.bird); })
@@ -130,10 +140,12 @@ function drawBarchart(year) {
       svg.selectAll('.bar')
          .sort(function(a, b) { return x0(a.bird) - x0(b.bird); });
 
+      // sort bars
       transition.selectAll('.bar')
                 .delay(delay)
                 .attr('x', function(d) { return x0(d.bird); });
 
+      // sort birdnames
       transition.select('.x.axis')
                 .call(xAxis)
                 .selectAll('g')
@@ -145,5 +157,7 @@ function drawBarchart(year) {
                 .attr('transform', 'rotate(-90)')
                 .delay(delay);
     }
+
   });
+
 }

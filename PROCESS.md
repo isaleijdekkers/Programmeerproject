@@ -2,25 +2,25 @@
 
 Een eerste idee uitgedacht. Schetsen gemaakt, en een verhaal bedacht wat ik wil vertellen.
 De schetsen die ik vandaag gemaakt heb:
-![](/doc/schets1.png)
-![](/doc/schets2.png)
+![](doc/schets1.png)
+![](doc/schets2.png)
 
 # dag 2
 
 Data opgevraagd en ontvangen van de vogelbescherming. Zij hebben mij geen data kunnen geven over provincies en plekken waar de tellingen gedaan zijn in verbang met pricacy. Hierdoor heb ik het plan van de kaart van Nederland moeten verwerpen en een nieuwe visualisatie moeten bedenken. Ik heb vandaag besloten om met enkel te richten op de tuinvogeltelling. Doordat ik data van de afgelopen 16 jaar heb ontvangen heb ik bedacht om in plaats van vanuit een kaart, vanuit een tijdlijn te werken. Ik heb nieuwe schetsen gemaakt, en een nieuw idee uitgedacht. Het onderwerp, vogelsoorten in Nederland, is onveranderd.
 
 Hiervoor heb ik een nieuwe eerste schets gemaakt:
-![](/doc/schets3.png)
+![](doc/schets3.png)
 
 De meer gedetailleerde schetsen die ik heb gemaakt voor de design opdracht:
-![](/doc/schets4.png)
-![](/doc/schets5.png)
+![](doc/schets4.png)
+![](doc/schets5.png)
 
 # dag 3
 
 Vandaag alle data in een csv-bestand gezet. Dataverzameling is afgerond. Mijn plan op kleine punten aangepast naar aanleiding van de feedback van vanochtend. Ik heb een begin gemaakt met de het html, css en javascript bestand. Tot nu toe enkel de titel en een halfwerkende tijdlijn gecreëerd. Zie afbeelding.
 
-![](/doc/visualisatie1.png)
+![](doc/visualisatie1.png)
 
 # dag 4
 
@@ -36,7 +36,7 @@ Vandaag heb ik de barchart met vogels gemaakt. Hierbij heb ik een extra feature 
 
 Mijn project ziet er op dit moment zo uit:
 
-![](/doc/visualisatie2.png)
+![](doc/visualisatie2.png)
 
 # dag 7
 
@@ -48,9 +48,9 @@ Ik heb na veel moeite vandaag mijn lijngrafiek gemaakt. Hier moeten de waarden e
 
 Mijn project ziet er op dit moment zo uit:
 
-![](/doc/visualisatie3.png)
-![](/doc/visualisatie4.png)
-![](/doc/visualisatie5.png)
+![](doc/visualisatie3.png)
+![](doc/visualisatie4.png)
+![](doc/visualisatie5.png)
 
 # dag 9
 
@@ -58,7 +58,7 @@ Vandaag ben ik verder gegaan met de lijngrafiek. Nu is het mogelijk om over de l
 
 De lijnrafiek ziet er op dit moment zo uit:
 
-![](/doc/visualisatie6.png)
+![](doc/visualisatie6.png)
 
 # dag 10
 
@@ -70,7 +70,7 @@ Op de 11e dag heb ik toch moeten veranderen van visualisatie, omdat de tabel nie
 
 De bubblechart ziet er op dit moment zo uit:
 
-![](/doc/visualisatie7.png)
+![](doc/visualisatie7.png)
 
 # dag 12
 
@@ -78,9 +78,9 @@ Nu begint de tijd te dringen. In plaats van dat ik de bubblechart naast de barch
 
 Mijn project ziet er op dit moment zo uit:
 
-![](/doc/visualisatie8.png)
-![](/doc/visualisatie9.png)
-![](/doc/visualisatie10.png)
+![](doc/visualisatie8.png)
+![](doc/visualisatie9.png)
+![](doc/visualisatie10.png)
 
 # dag 13
 
@@ -92,10 +92,10 @@ Op dag 14 heb ik heel wat voor elkaar gekregen. Ik heb de kleuren van de bubblec
 
 Mijn project ziet er op dit moment zo uit:
 
-![](/doc/visualisatie11.png)
-![](/doc/visualisatie12.png)
-![](/doc/visualisatie13.png)
-![](/doc/visualisatie14.png)
+![](doc/visualisatie11.png)
+![](doc/visualisatie12.png)
+![](doc/visualisatie13.png)
+![](doc/visualisatie14.png)
 
 # dag 15
 
@@ -111,10 +111,10 @@ Op dag 17 heb ik nog een aantal dingen aan de code aangepast en als het goed is 
 
 Mijn project ziet er op dit moment zo uit:
 
-![](/doc/visualisatie15.png)
-![](/doc/visualisatie16.png)
-![](/doc/visualisatie17.png)
-![](/doc/visualisatie18.png)
+![](doc/visualisatie15.png)
+![](doc/visualisatie16.png)
+![](doc/visualisatie17.png)
+![](doc/visualisatie18.png)
 
 # dag 18
 

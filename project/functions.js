@@ -1,24 +1,32 @@
-function highlightLine(birdUppercase) {
-  var bird = "path#" + birdUppercase;
+/*
+* Isa Leijdekkers
+* 10606467
+*/
 
-  d3.selectAll(bird)
-    .classed("clicked", function (d,i) {
-    return !d3.select(this).classed("clicked")
-    });
-}
+function highlightBar(birdLowercase) {
+  var bird = "rect#" + birdLowercase;
 
-function highlightCircle(birdUppercase) {
-  var bird = "circle#" + birdUppercase;
-
+  // highlights bar
   d3.selectAll(bird)
   .classed("clicked", function (d,i) {
   return !d3.select(this).classed("clicked")
   });
 }
 
-function highlightBar(birdLowercase) {
-  var bird = "rect#" + birdLowercase;
+function highlightLine(birdUppercase) {
+  var bird = "path#" + birdUppercase;
 
+  // highlights line
+  d3.selectAll(bird)
+    .classed("clicked", function (d,i) {
+    return !d3.select(this).classed("clicked")
+    });
+}
+
+function highlightBubble(birdUppercase) {
+  var bird = "circle#" + birdUppercase;
+
+  // highlights bubble
   d3.selectAll(bird)
   .classed("clicked", function (d,i) {
   return !d3.select(this).classed("clicked")
@@ -26,10 +34,12 @@ function highlightBar(birdLowercase) {
 }
 
 function myFunction() {
-  // Declare variables
+
+  // get input in uppercase and without spaces
   var input = document.getElementById("myInput").value;
   var filter = input.toUpperCase().replace(/\W/g, '');
 
+  // hightlight line when first letters matches input
   for (var i = 0; i < birds.length; i++) {
     var birdId = "#" + birds[i].toUpperCase().replace(/\W/g, '');
     if (filter == 0) {
@@ -46,6 +56,8 @@ function myFunction() {
 }
 
 function clickButton() {
+
+  // deselect all birds
   d3.selectAll(".clicked")
   .classed("clicked", false);
 }

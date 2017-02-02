@@ -1,3 +1,8 @@
+/*
+* Isa Leijdekkers
+* 10606467
+*/
+
 // create array for all birds
 var birds = [];
 

@@ -5,136 +5,117 @@ Isa Leijdekkers
 
 <!DOCTYPE html>
 <html>
-    <head>
-      <!-- include other files -->
-      <meta charset="utf-8">
-      <title>De Nationale Tuinvogeltelling (2005 - 2016)</title>
-      <link rel="stylesheet" type="text/css" href="project/project.css"/>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="shortcut icon" href="/doc/favicon.ico" type="doc/x-icon">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-      <script src="https://d3js.org/d3.v3.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js"></script>
-      <script src="project/timeline.js"></script>
-      <script src="project/barchart.js"></script>
-      <script src="project/linegraph.js"></script>
-      <script src="project/bubblechart.js"></script>
-      <script src="project/functions.js"></script>
-    </head>
-    <body>
-      <div class = "page-header">
-        <h2>Nationale Tuinvogeltelling
-          <small>(2005-2016)</small>
-        </h2>
-      </div>
+  <head>
+    <!-- include other files -->
+    <meta charset="utf-8">
+    <title>De Nationale Tuinvogeltelling (2005 - 2016)</title>
+    <link rel="stylesheet" type="text/css" href="project/project.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/doc/favicon.ico" type="doc/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js"></script>
+    <script src="project/timeline.js"></script>
+    <script src="project/barchart.js"></script>
+    <script src="project/linegraph.js"></script>
+    <script src="project/bubblechart.js"></script>
+    <script src="project/functions.js"></script>
+  </head>
+  <body>
+    <!-- add header -->
+    <div class = "page-header">
+      <h2>Nationale Tuinvogeltelling
+        <small>(2005-2016)</small>
+      </h2>
+    </div>
+    <!-- add elements and text on page -->
+    <div class="row">
+      <img src="doc/birds.jpg" alt="Birds" class="img-responsive center-block" style="width:400px;"/>
+      <div class="col-md-4"></div>
+      <div class="col-md-4" id="text1"> <br>Elk jaar organiseert de Vogelsbescherming Nederland de tweedaagse Tuinvogeltelling.
+        Dit is een evenement waarbij deelnemers een half uur lang het aantal vogels per soort tellen
+        die zich in de tuin of op het balkon bevinden. De gegevens worden gebruikt om de vogelpopulatie in
+        de gaten te houden. Deze pagina toont de resultaten van afgelopen elf tellingen. Ook wordt informatie over de
+        gemiddelde groepsgrootte en de soort vogel verschaft.</div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="container">
       <div class="row">
-        <img src="doc/birds.jpg" alt="Birds" class="img-responsive center-block" style="width:400px;"/>
-        <div class="col-md-4"></div>
-        <div class="col-md-4" id="text1"> <br>Elk jaar organiseert de Vogelsbescherming Nederland de tweedaagse Tuinvogeltelling.
-          Dit is een evenement waarbij deelnemers een half uur lang het aantal vogels per soort tellen
-          die zich in de tuin of op het balkon bevinden. De gegevens worden gebruikt om de vogelpopulatie in
-          de gaten te houden. Deze pagina toont de resultaten van afgelopen elf tellingen. Ook wordt informatie over de
-          gemiddelde groepsgrootte en de soort vogel verschaft.</div>
-        <div class="col-md-4"></div>
+        <div class="col-md-5"></div>
+        <div class="col-md-2" id="button"><button type="button" onclick="clickButton()">Deselecteer alles</button></div>
+        <div class="col-md-5"></div>
       </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-5"></div>
-          <div class="col-md-2" id="button"><button type="button" onclick="clickButton()">Deselecteer alles</button></div>
-          <div class="col-md-5"></div>
-        </div>
       <div class="row">
         <div class="col-md-12" id="timeline"></div>
         <div class="col-sm-1"></div>
-        <div class="col-sm-2" id="nodata">Geen data<span id="explanation">In het jaar 2007 is er gewisseld van maand waarin de telling heeft plaatsgevonden. Er was een telling in december 2006 en in januari 2008. Anders zouden er twee tellingen in twee maanden hebben plaatsgevonden.</span></div>
+        <div class="col-sm-2" id="nodata">Geen data<span id="explanation">In het jaar 2007 is er gewisseld
+          van maand waarin de telling heeft plaatsgevonden. Er was een telling in december 2006 en
+          in januari 2008. Om deze reden is er geen telling in 2007 geweest.</span></div>
         <div class="col-sm-9"></div>
       </div>
-      </div>
-      <div class="container">
+    </div>
+    <div class="container">
       <div class="row">
-
         <label><input type="checkbox" id="checkbox"> Sorteer op aantal keer geteld</label>
-
-
         <div class="col-md-4"></div>
         <div class="col-md-4" id="title1">Aantal getelde vogels per soort in 2016</div>
         <div class="col-md-4"></div>
         <div class="col-md-12" id="barchart"></div>
         <div class="col-md-2"></div>
-        <div class="col-md-6" id="text5">Klik op de staaf voor bijbehorende trend in telling en groepsgrootte.</div>
+        <div class="col-md-6" id="text2">Klik op de staaf voor bijbehorende verandering in telling en groepsgrootte.</div>
         <div class="col-md-4"></div>
-        </div>
       </div>
-      <div class="container">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4" id="title2">Aantal getelde vogels per soort</div>
-        <div class="col-md-4"></div>
-        <div class="col-md-12" id="linegraph">
-          <div class="col-md-2"></div>
-          <div class="col-md-6" id="text3">Klik op de lijn voor de bijbehorende groepsgrootte.</div>
-          <div class="col-md-4"></div>
-
-
-          <div class="row">
-                <div class="col-md-10">
-
-
-                    <form id="custom-search-form" class="form-search form-horizontal pull-right">
-                        <!-- <div class="input-append span12"> -->
-
-                            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek vogel">
-                            <!-- <button type="submit" class="btn"><i class="icon-search"></i></button> -->
-
-                    </form>
-
-                    </div>
-
-                    <div class="col-md-2">
-
-
-
-
-      </div>
-      </div>
-    </div>
     </div>
     <div class="container">
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4" id="title3">Gemiddelde groepsgrootte per vogelsoort</div>
-    <div class="col-md-4"></div>
-    </div>
-    <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-7" id="bubblechart"></div>
-  <div class="col-md-3" id="text2"><strong>Standvogel</strong><br> Een vogelsoort waarvan het grootste deel van
-    alle vogels in het broedgebied blijven overwinteren. <br><br><strong>Trekvogel</strong><br>Een vogelsoort
-    waarvan het grootste deel van alle vogels uit het broedgebied trekken om op ruime afstand daarvan te overwinteren.
-    <br><br><strong>Beide</strong><br>Dit houdt in dat een deel van de vogelsoort het karakter van een standvogel heeft
-    en een deel het karakter van een trekvogel.</div>
-    <div class="col-md-2"></div>
-    <div class="col-md-6" id="text4">Speel met de bubbels en dubbelklik voor de bijbehorende telling.</div>
-    <div class="col-md-4"></div>
-    </div>
-</div>
-</div>
-
-
-<script src="project/main.js"></script>
-    </body>
-    <div class="footer">
-  <div class="row">
-  <hr>
-    <div class="col-lg-1"></div>
-      <div class="col-md-10">
-        <a href="https://www.tuinvogeltelling.nl/">De Nationale Tuinvogeltelling</a>
-        <p class="muted pull-right">© 2017 Isa Leijdekkers. All rights reserved</p>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="title2">Verandering in telling per vogelsoort</div>
+        <div class="col-md-4"></div>
+        <div class="col-md-12" id="linegraph"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-6" id="text3">Klik op de lijn voor bijbehorende groepsgrootte.</div>
+        <div class="col-md-4"></div>
+        <div class="row">
+          <div class="col-md-10">
+            <form id="custom-search-form" class="form-search form-horizontal pull-right">
+              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek vogel">
+            </form>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
       </div>
-      <div class="col-lg-1"></div>
-
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="title3">Gemiddelde groepsgrootte per vogelsoort</div>
+        <div class="col-md-4"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7" id="bubblechart"></div>
+        <div class="col-md-3" id="text4"><strong>Standvogel</strong><br> Een vogelsoort waarvan het grootste deel van
+          alle vogels in het broedgebied blijven overwinteren. <br><br><strong>Trekvogel</strong><br>Een vogelsoort
+          waarvan het grootste deel van alle vogels uit het broedgebied trekken om op ruime afstand daarvan te overwinteren.
+          <br><br><strong>Beide</strong><br>Dit houdt in dat een deel van de vogelsoort het karakter van een standvogel heeft
+          en een deel het karakter van een trekvogel.</div>
+        <div class="col-md-2"></div>
+        <div class="col-md-6" id="text5">Speel met de bubbels en dubbelklik voor de bijbehorende telling.</div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+    <script src="project/main.js"></script>
+  </body>
+  <!-- add footer -->
+  <div class="footer">
+    <div class="row">
+      <hr>
+        <div class="col-lg-1"></div>
+          <div class="col-md-10">
+            <a href="https://www.tuinvogeltelling.nl/">De Nationale Tuinvogeltelling</a>
+            <p class="muted pull-right">© 2017 Isa Leijdekkers</p>
+          </div>
+          <div class="col-lg-1"></div>
     </div>
   </div>
-</div>
 </html>
