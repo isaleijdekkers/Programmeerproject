@@ -1,4 +1,5 @@
 /*
+* main.js
 * Isa Leijdekkers
 * 10606467
 */

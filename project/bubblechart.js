@@ -1,7 +1,10 @@
 /*
+* draws the bubblechart
+* bubblechart.js
 * Isa Leijdekkers
 * 10606467
 */
+
 
 function drawBubblechart() {
 
@@ -149,7 +152,7 @@ function drawBubblechart() {
              }, 1000);
            });
       });
-      
+
       d3.selectAll('.bubble')
         .call(drag);
     }

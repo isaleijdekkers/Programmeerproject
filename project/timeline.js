@@ -1,7 +1,10 @@
 /*
+* draws the timeline
+* timeline.js
 * Isa Leijdekkers
 * 10606467
 */
+
 
 function drawTimeline() {
 

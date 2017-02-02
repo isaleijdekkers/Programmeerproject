@@ -1,7 +1,10 @@
 /*
+* draws the linegraph
+* linegraph.js
 * Isa Leijdekkers
 * 10606467
 */
+
 
 function drawLinegraph() {
 

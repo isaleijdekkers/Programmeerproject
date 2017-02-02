@@ -1,4 +1,6 @@
 /*
+* draws the barchart
+* barchart.js
 * Isa Leijdekkers
 * 10606467
 */
