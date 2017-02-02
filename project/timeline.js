@@ -5,7 +5,6 @@
 * 10606467
 */
 
-
 function drawTimeline() {
 
   drawBarchart('2016');

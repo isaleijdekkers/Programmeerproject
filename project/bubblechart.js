@@ -5,7 +5,6 @@
 * 10606467
 */
 
-
 function drawBubblechart() {
 
   // create bubbles
@@ -22,7 +21,7 @@ function drawBubblechart() {
       .attr('width', diameter + 400)
       .attr('height', diameter + 100);
 
-  // createlegend
+  // create legend
   var legend = svg.append('g')
       .attr('class', 'legend')
       .selectAll('g')

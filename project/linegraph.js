@@ -5,7 +5,6 @@
 * 10606467
 */
 
-
 function drawLinegraph() {
 
   // set dimensions of canvas
