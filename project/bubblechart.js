@@ -31,6 +31,7 @@ function drawBubblechart() {
             })
 
   d3.csv("data/groepsgrootte.csv", function(error, data){
+    if (error) throw error;
 
     data = data.map(function(d){ d.value = +d.groep; return d; });
 

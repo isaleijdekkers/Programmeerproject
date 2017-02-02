@@ -46,7 +46,8 @@ var jaar = "telling" + jaar.slice(-2);
 svg.call(tip);
 
 // load data
-d3.csv("data/tuinvogeltelling.csv", function(error, data) {
+d3.csv("data/vogelsstaafdiagram.csv", function(error, data) {
+  if (error) throw error;
 
   data.forEach(function(d) {
       vogels.push(d.vogel)

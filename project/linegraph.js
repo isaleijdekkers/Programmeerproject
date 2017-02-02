@@ -43,7 +43,9 @@ function drawLinegraph() {
       // setup tip
       svg.call(tip);
 
-  d3.csv("data/testvogels.csv", function (error, data) {
+  d3.csv("data/vogelslijngrafiek.csv", function (error, data) {
+    if (error) throw error;
+    
     var labelVar = 'jaar';
     var varNames = d3.keys(data[0]).filter(function (key) { return key !== labelVar;});
 
